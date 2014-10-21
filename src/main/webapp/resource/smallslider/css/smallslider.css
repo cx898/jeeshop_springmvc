@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* 
+    $Document : smallslider$
+    $Created on : 2009-7-3, 12:56:26$
+    $Last Update : 2010-3-15, 12:20:22$
+    $Description : Stylesheet for smallslider, UTF-8 encoding$
+*/
+.smallslider { height: 200px; overflow: hidden; position: relative; width: 320px; }
+.smallslider h3 { color: #EEE; font-size: 12px; font-weight: 700; line-height: 26px; position: absolute; text-indent: 2%; width: 100%; z-index: 102; margin: 0; }
+.smallslider h3 a { color: #FFF; text-decoration: none; }
+.smallslider h3 a:hover { color: #F60; text-decoration: underline; }
+.smallslider li img { border: 0; vertical-align: top; }
+.smallslider ul { list-style-type: none; margin: 0; padding: 0; }
+.smallslider-btns { position: absolute; z-index: 103; }
+.smallslider-btns .current-btn { background-color: #C00100; border: 1px solid #A00100; color: #FFF; font-size: 14px; font-weight: 700; }
+.smallslider-btns span { background-color: #FFF; border: 1px solid #DCDCDC; color: #9F9F9F; cursor: pointer; float: left; font-size: 12px; height: 16px; line-height: 16px; text-align: center; width: 16px; }
+.smallslider-lay { background-color: #000; height: 26px; position: absolute; width: 100%; z-index: 101; }

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/**
+ * lab CSS
+ */
+body { background-color: #E8F2FA; font-size: 12px; }
+p { line-height: 1.8em; text-indent: 2em; }
+a { color: #0089FE; text-decoration: none; }
+a:hover { color: #E8A02C; text-decoration: underline; }
+#contain h2 { color: #FF5A00; font-size: 14px; line-height: 2em; margin-top: 10px; }
+#down { margin: 20px 0; }
+#down a { background: url(../images/Down.png) no-repeat 10px 10px; border: 1px solid #EEE; display: block; height: 58px; line-height: 52px; padding: 5px 0 5px 60px; width: 120px; }
+#down a:hover { color: #E8A02C; }
+#down p { text-indent: 0; }
+#expo1, #expo2 { border-bottom: 1px solid #D9D9FF; }
+#flashbox { height: 200px; width: 320px; }
+#footer { background-image: url(../images/inner-bg.png); text-align: center; padding: 20px 0; }
+#header h1 { background: url(../images/banner_bg.png) no-repeat; color: #0061CA; font-size: 22px; height: 70px; line-height: 60px; text-indent: 5em; }
+#header p { text-align: center; }
+#header, #contain { padding: 20px; }
+#main { background-color: #FFF; width: 950px; margin: 0 auto; }
+#nav { background: url(../images/header_bg.png) repeat-x; height: 30px; }
+#nav ul { float: right; width: 360px; }
+#nav ul li { float: left; margin-right: 20px; }
+#nav ul li a { color: #FFF; display: block; font-size: 14px; line-height: 30px; text-align: center; width: 60px; }
+#nav ul li a:hover { color: #FC0; }
+.box { background-color: #FFFDE5; border: 1px solid #F6F3D3; color: #930; margin-bottom: 20px; padding: 10px 30px; }
+.codetit { background-color: #F7F6F1; border-color: #E9E8E3; border-style: solid solid none; border-width: 1px; height: 24px; line-height: 24px; padding-left: 10px; }
+.compatible { overflow: hidden; text-align: right; width: 100%; }
+.compatible span { float: left; margin-left: 10px; text-align: center; width: 80px; }
+.compatible span em { display: block; }
+.exmp { float: left; }
+.exmp-txt { border-left: 2px solid #F93; float: right; width: 440px; padding: 10px 20px; }
+.expo { padding: 20px; }
+.expoes { background-color: #EEF; border: 1px solid #D9D9FF; padding: 15px; }
+.insertcode ol { background-color: #F7F6F1; border: 1px solid #E9E8E3; padding-left: 36px; }
+.insertcode ol li { background-color: #FFF; border-left: 3px solid #F93; line-height: 20px; padding-left: 6px; }
+.list { padding: 0 30px; }
+.list li { line-height: 2em; }
+.para, .code { margin-bottom: 20px; }
+.section, .update { margin-bottom: 10px; }
+.tblist { background-color: #FEF; border-collapse: collapse; }
+.tblist th { color: #36C; }
+.tblist th, .tblist td { border: 1px solid #B4C4FF; text-align: left; padding: 5px 20px; }
+.update p { margin-top: 10px; }
+.update p span { float: right; }

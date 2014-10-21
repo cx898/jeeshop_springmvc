@@ -1,0 +1,10 @@
+<%@page import="org.slf4j.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%
+Logger logger = LoggerFactory.getLogger("alipayapi_notify.jsp");
+String out_trade_no = request.getParameter("out_trade_no");
+logger.error("out_trade_no="+out_trade_no);
+System.out.println("out_trade_no="+out_trade_no);
+response.getWriter().write("success");
+%>

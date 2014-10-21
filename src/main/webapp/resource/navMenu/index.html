@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html>
+<head>	
+<title>jquery天猫导航实现</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" /> 
+<script type="text/javascript" src="js/jQuery.js"></script> 
+<script type="text/javascript" src="js/jquery.tmailsider.js"></script>
+</head>
+<body>
+<style type="text/css">
+.menu .items ul li .on{
+	-webkit-transform: perspective(700px) translateY(0px) translateZ(0px) rotateX(0deg);
+	-moz-transform: perspective(700px) translateY(0px) translateZ(0px) rotateX(0deg);
+	-ms-transform: perspective(700px) translateY(0px) translateZ(0px) rotateX(0deg);
+	-o-transform: perspective(700px) translateY(0px) translateZ(0px) rotateX(0deg);
+	transform: perspective(700px) translateY(0px) translateZ(0px) rotateX(0deg);
+	-webkit-transition:all 600ms ease-in-out 0s;
+	-moz-transition:all 600ms ease-in-out 0s;
+	-ms-transition:all 600ms ease-in-out 0s;
+	-o-transition:all 600ms ease-in-out 0s;
+	transition:all 600ms ease-in-out 0s;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	-webkit-transform-origin: 50% 100% 0;
+	-moz-transform-origin: 50% 100% 0;
+	-ms-transform-origin: 50% 100% 0;
+	-o-transform-origin: 50% 100% 0;
+	transform-origin: 50% 100% 0;
+	line-height:25px;
+	height:25px;
+}
+.menu .items ul li .scroll {
+	-webkit-transform: perspective(700px) translateY(0px) translateZ(-21px) rotateX(-90deg);
+	-moz-transform: perspective(700px) translateY(0px) translateZ(-21px) rotateX(-90deg);
+	-ms-transform: perspective(700px) translateY(0px) translateZ(-21px) rotateX(-90deg);
+	-o-transform: perspective(700px) translateY(0px) translateZ(-21px) rotateX(-90deg);
+	box-shadow: 0 2px 2px #AAAAAA;
+	height:0px;
+}
+</style>
+<div class="top">
+    <div class="middle">
+        <div class="logo">
+        	<img src="images/logo.png" title="天猫tmall.com.com-上天猫，就够了" />
+        </div>
+    </div>
+</div>
+<div class="wrap">
+<div class="main">main</div>
+<div id="menu" class="menu">
+    <h1 class="title">
+        <a>所有商品分类</a>
+        <s class="btn_group bright">
+            <a class="bleft" title="扩展视图"></a>
+            <a class="bright" title="精简视图"></a>
+        </s>
+    </h1>
+    <div class="items">
+        <ul>
+            <li class="list-item0">
+                <h3>服装/内衣/配件</h3>
+                <p class="on">
+                    <a href="#">女装</a>
+                    <a href="#">男装</a>
+                    <a href="#">内衣</a>
+                    <a href="#">羽绒</a>
+                    <a href="#">呢大衣</a>
+                </p>
+                <p class="on">
+                    <a href="#">毛衣</a>
+                    <a href="#">保暖</a>
+                    <a href="#">睡衣</a>
+                    <a href="#">男羽绒</a>
+                    <a href="#">男毛衣</a>
+                </p>
+            </li>
+            <li class="list-item1 alt">
+              <h3>鞋/箱包</h3>
+                <p class="on">
+                    <a href="#">女鞋</a>
+                    <a href="#">男鞋</a>
+                    <a href="#">雪地靴</a>
+                    <a href="#">靴子</a>
+                    <a href="#">男靴</a>
+                </p>
+                <p class="on">
+                    <a href="#">箱包</a>
+                    <a href="#">女包</a>
+                    <a href="#">男包</a>
+                    <a href="#">拉杆箱</a>
+                    <a href="#">钱包</a>
+                </p>
+          </li>
+            <li class="list-item2">
+              <h3>珠宝饰品/手表眼睛</h3>
+                <p class="on">
+                    <a href="#">珠宝</a>
+                    <a href="#">足金</a>
+                    <a href="#">钻戒</a>
+                    <a href="#">玉镯</a>
+                    <a href="#">珍珠</a>
+                </p>
+                <p class="on">
+                    <a href="#">手表</a>
+                    <a href="#">饰品</a>
+                    <a href="#">毛衣链</a>
+                    <a href="#">手链</a>
+                    <a href="#">瑞士军刀</a>
+                </p>
+          </li>
+            <li class="list-item3 alt">
+              <h3>化妆品</h3>
+                <p class="on">
+                    <a href="#">护肤</a>
+                    <a href="#">彩妆</a>
+                    <a href="#">假发</a>
+                    <a href="#">香水</a>
+                    <a href="#">男士护肤</a>
+                </p>
+                <p class="on">
+                    <a href="#">套装</a>
+                    <a href="#">面膜</a>
+                    <a href="#">洁面</a>
+                    <a href="#">眼霜</a>
+                    <a href="#">BB霜</a>
+                    <a href="#">爽肤水</a>
+                </p>
+          </li>
+            <li class="list-item4">
+              <h3>运动户外</h3>
+                <p class="on">
+                    <a href="#">运动鞋</a>
+                    <a href="#">运动服</a>
+                    <a href="#">户外</a>
+                    <a href="#">用品</a>
+                    <a href="#">板鞋</a>
+                </p>
+                <p class="on">
+                    <a href="#">跑步鞋</a>
+                    <a href="#">羽绒服</a>
+                    <a href="#">冲锋衣</a>
+                    <a href="#">跑步机</a>
+                </p>
+          </li>
+            <li class="list-item5 alt">
+              <h3>手机数码</h3>
+                <p class="on">
+                    <a href="#">手机</a>
+                    <a href="#">相机</a>
+                    <a href="#">笔记本</a>
+                    <a href="#">平板</a>
+                    <a href="#">硬件</a>
+                </p>
+                <p class="on">
+                    <a href="#">配件</a>
+                    <a href="#">视听</a>
+                    <a href="#">移动存储</a>
+                    <a href="#">台式机</a>
+                </p>
+          </li>
+            <li class="list-item6">
+              <h3>家用电器</h3>
+                <p class="on">
+                    <a href="#">大家电</a>
+                    <a href="#">影音</a>
+                    <a href="#">电视</a>
+                    <a href="#">耳机</a>
+                    <a href="#">厨房</a>
+                </p>
+                <p class="on">
+                    <a href="#">生活电器</a>
+                    <a href="#">取暖器</a>
+                    <a href="#">个人护理/保健</a>
+                </p>
+          </li>
+            <li class="list-item7 alt">
+              <h3>家具建材</h3>
+                <p class="on">
+                    <a href="#">灯具</a>
+                    <a href="#">卫浴</a>
+                    <a href="#">油漆</a>
+                    <a href="#">开关</a>
+                    <a href="#">地板</a>
+                    <a href="#">墙纸</a>
+                </p>
+                <p class="on">
+                    <a href="#">沙发</a>
+                    <a href="#">床</a>
+                    <a href="#">衣柜</a>
+                    <a href="#">床垫</a>
+                    <a href="#">架类</a>
+                    <a href="#">工具</a>
+                </p>
+          </li>
+            <li class="list-item8">
+              <h3>家纺/居家</h3>
+                <p class="on">
+                    <a href="#">四件套</a>
+                    <a href="#">蚕丝被</a>
+                    <a href="#">冬被</a>
+                    <a href="#">枕头</a>
+                    <a href="#">家饰</a>
+                </p>
+                <p class="on">
+                    <a href="#">厨房</a>
+                    <a href="#">杯子</a>
+                    <a href="#">清洁</a>
+                    <a href="#">收纳</a>
+                    <a href="#">宠物</a>
+                    <a href="#">居家</a>
+                </p>
+          </li>
+            <li class="list-item9 alt">
+              <h3>母婴玩具</h3>
+                <p class="on">
+                    <a href="#">奶粉</a>
+                    <a href="#">尿裤</a>
+                    <a href="#">童装</a>
+                    <a href="#">孕产</a>
+                    <a href="#">玩具</a>
+                    <a href="#">车床</a>
+                </p>
+                <p class="on">	
+                    <a href="#">辅食</a>
+                    <a href="#">用品</a>
+                    <a href="#">童鞋</a>
+                    <a href="#">月子</a>
+                    <a href="#">大人玩乐</a>
+                </p>
+          </li>
+            <li class="list-item10">
+              <h3>食品</h3>
+                <p class="on">
+                    <a href="#">零食</a>
+                    <a href="#">坚果</a>
+                    <a href="#">茶叶</a>
+                    <a href="#">冲饮</a>
+                    <a href="#">粮油</a>
+                    <a href="#">生鲜</a>
+                </p>
+                <p class="on">
+                    <a href="#">酒水</a>
+                    <a href="#">白酒</a>
+                    <a href="#">葡萄酒</a>
+                    <a href="#">巧克力</a>
+                    <a href="#">进口</a>
+                </p>
+          </li>
+            <li class="list-item11 alt">
+              <h3>医药保健</h3>
+                <p class="on">
+                    <a href="#">保健</a>
+                    <a href="#">滋补</a>
+                    <a href="#">养生</a>
+                    <a href="#">食疗</a>
+                    <a href="#">提高免疫</a>
+                </p>
+                <p class="on">
+                    <a href="#">药品</a>
+                    <a href="#">血压</a>
+                    <a href="#">美瞳</a>
+                    <a href="#">计生</a>
+                    <a href="#">体检</a>
+                </p>
+          </li>
+            <li class="list-item12">
+              <h3>汽车配件</h3>
+                <p class="on">
+                    <a href="#">汽车</a>
+                    <a href="#">汽车用品</a>
+                    <a href="#">坐垫</a>
+                    <a href="#">座套</a>
+                </p>
+                <p class="on">
+                    <a href="#">脚垫</a>
+                    <a href="#">GPS</a>
+                    <a href="#">儿童安全座椅</a>
+                    <a href="#">改装</a>
+                </p>
+          </li>
+            <li class="list-item13 alt">
+              <h3>图书音像</h3>
+                <p class="on">
+                    <a href="#">考试</a>
+                    <a href="#">儿童</a>
+                    <a href="#">小说</a>
+                    <a href="#">外语</a>
+                    <a href="#">社科</a>
+                    <a href="#">艺术</a>
+                </p>
+                <p class="on">
+                    <a href="#">养生</a>
+                    <a href="#">文学</a>
+                    <a href="#">动漫</a>
+                    <a href="#">杂志</a>
+                    <a href="#">心理</a>
+                    <a href="#">管理</a>
+                </p>
+          </li>
+            <li class="list-item14">
+              <h3>文化娱乐</h3>
+                <p class="on">
+                    <a href="#">电子凭证</a>
+                    <a href="#">小猫提货</a>
+                    <a href="#">乐器</a>
+                    <a href="#">旅游</a>
+                </p>
+                <p class="on">
+                    <a href="#">网店软件</a>
+                    <a href="#">古董字画</a>
+                    <a href="#">个性定制</a>
+                </p>
+          </li>
+            <li class="list-item15 alt">
+              <h3>手机/网游点卡</h3>
+          </li>
+      </ul>
+  </div>		
+    <div class="box">
+        <div class="hide">1、服装/内衣/配件</div>
+        <div class="hide">2、鞋/箱包</div>
+        <div class="hide">3、珠宝饰品/手表眼睛</div>
+        <div class="hide">4、化妆品</div>
+        <div class="hide">5、运动户外</div>
+        <div class="hide">6、手机数码</div>
+        <div class="hide">7、家用电器</div>
+        <div class="hide">8、家具建材</div>
+        <div class="hide">9、家纺/居家</div>
+        <div class="hide">10、母婴玩具</div>
+        <div class="hide">11、食品</div>
+        <div class="hide">12、医药保健</div>
+        <div class="hide">13、汽车配件</div>
+        <div class="hide">14、图书音像</div>
+        <div class="hide">15、文化娱乐</div>
+        <div class="hide">16、手机、点卡</div>
+    </div>		
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('#menu').sliders();		
+})
+
+//此段代码可以注视起来
+/*********start fuck ie**********/
+if(window.navigator.userAgent.indexOf('MSIE 6.0')!==-1){
+ alert('fuck IE')
+}
+/*********end fuck ie**********/
+</script>
+</body>
+</html>

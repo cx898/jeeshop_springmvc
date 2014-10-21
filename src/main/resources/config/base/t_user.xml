@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	
+	<select id="user.selectPageList" parameterType="net.jeeshop.core.system.bean.User" resultType="hashMap">
+		SELECT t.id,t.username,t.nickname,t.password,DATE_FORMAT(t.createtime,'%Y-%m-%d') createtime,t.email,
+		t.status,t.rid,(select r.role_name from t_role r where r.id=t.rid) role_name
+		 FROM t_user t  where 1=1  
+		<if test="id!=null and id!=''">
+			and t.id=#{id}
+		</if>
+		<if test="username!=null and username!=''">
+			and t.username=#{username} 
+		</if>
+		<if test="password!=null and password!=''">
+			and t.password=#{password} 
+		</if>
+		<if test="status!=null and status!=''">
+			and t.status= #{status}
+		</if>
+		<if test="rid!=null and rid!=''">
+			and t.rid=#{rid}
+		</if> 
+		order by id desc 
+		limit #{offset},#{pageSize}
+<!-- 		<include refid="sqlWhere2"/> -->
+	</select>
+	<select id="user.selectPageCount" parameterType="net.jeeshop.core.system.bean.User" resultType="java.lang.Integer">
+		select count(*) from (
+				SELECT t.id,t.username,t.password,DATE_FORMAT(t.createtime,'%Y-%m-%d') createtime,t.email,
+				t.status,t.rid,(select r.role_name from t_role r where r.id=t.rid) role_name
+				 FROM t_user t  where 1=1  
+				<if test="id!=null and id!=''">
+					and t.id=#{id}
+				</if>
+				<if test="username!=null and username!=''">
+					and t.username=#{username} 
+				</if>
+				<if test="password!=null and password!=''">
+					and t.password=#{password} 
+				</if>
+				<if test="status!=null and status!=''">
+					and t.status= #{status}
+				</if>
+				<if test="rid!=null and rid!=''">
+					and t.rid=#{rid}
+				</if>    
+		<!-- 		<include refid="sqlWhere2"/> -->
+		) a
+	</select>
+	
+	<select id="user.selectOne" parameterType="net.jeeshop.core.system.bean.User" resultType="net.jeeshop.core.system.bean.User">
+		SELECT t.id,t.username,t.nickname,t.password,DATE_FORMAT(t.createtime,'%Y-%m-%d'),t.email,
+		(select role_dbPrivilege from t_role r where r.id=t.rid) role_dbPrivilege,
+		t.status,t.rid FROM t_user t  where 1=1  
+						<if test="id!=null and id!=''">
+					and t.id=#{id}
+				</if>
+				<if test="username!=null and username!=''">
+					and t.username=#{username} 
+				</if>
+				<if test="password!=null and password!=''">
+					and t.password=#{password} 
+				</if>
+				<if test="status!=null and status!=''">
+					and t.status= #{status}
+				</if>
+				<if test="rid!=null and rid!=''">
+					and t.rid=#{rid}
+				</if>    
+<!-- 		<include refid="sqlWhere"/> -->
+	</select>
+	
+	<select id="user.selectCount" parameterType="net.jeeshop.core.system.bean.User" resultType="int">
+		SELECT count(*) from t_user where 1=1 
+		<if test="username!=null and username!=''">
+			and username=#{username} 
+		</if>
+		<if test="nickname!=null and nickname!=''">
+			and nickname=#{nickname} 
+		</if>
+	</select>
+	
+	<select id="user.selectOneByCondition" parameterType="net.jeeshop.core.system.bean.User" resultType="net.jeeshop.core.system.bean.User">
+		SELECT * from t_user where 1=1 
+		<if test="nickname!=null and nickname!=''">
+			and nickname=#{nickname} 
+		</if>
+	</select>
+	
+	<insert id="user.insert" parameterType="net.jeeshop.core.system.bean.User" useGeneratedKeys="true" 
+		keyProperty="id">
+		insert into t_user (id,username,password,createtime,createAccount,status,rid,nickname,email)
+		 values (id,#{username},#{password},now(),#{createAccount},#{status},#{rid},#{nickname},#{email})
+	</insert>
+	
+	<update id="user.update" parameterType="net.jeeshop.core.system.bean.User">
+		update t_user set id=#{id},updatetime=now(),updateAccount=#{updateAccount}
+		<if test="password!=null">
+			,password=#{password}
+		</if>
+		<if test="status!=null">
+			,status=#{status}
+		</if>
+		<if test="rid!=null">
+			,rid=#{rid}
+		</if>
+		<if test="nickname!=null and nickname!=''">
+			,nickname=#{nickname}
+		</if>
+		<if test="email!=null and email!=''">
+			,email=#{email}
+		</if>
+		where id=#{id}
+	</update>
+	
+<!-- 	<delete id="user.delete" parameterType="net.jeeshop.core.system.bean.User"> -->
+<!-- 		delete from t_user where id=#{id} -->
+<!-- 	</delete> -->
+</mapper>  

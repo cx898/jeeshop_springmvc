@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 门户滚动图片 -->
+<!-- 	<bean id="indexImgActionManage" class="net.jeeshop.web.action.manage.indexImg.IndexImgAction"> -->
+<!-- 		<property name="server" ref="indexImgServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 商品、文章目录 -->
+<!-- 	<bean id="catalogActionManage" class="net.jeeshop.web.action.manage.catalog.CatalogAction"> -->
+<!-- 		<property name="server" ref="catalogServiceManage"></property> -->
+<!-- 		<property name="catalogService" ref="catalogServiceManage"></property> -->
+<!-- 		<property name="frontCache" ref="frontCache"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 文章管理 -->
+<!-- 	<bean id="newsActionManage" class="net.jeeshop.web.action.manage.news.NewsAction"> -->
+<!-- 		<property name="server" ref="newsServiceManage"></property> -->
+<!-- 		<property name="indexImgService" ref="indexImgServiceManage"></property> -->
+<!-- 		<property name="newsService" ref="newsServiceManage"></property> -->
+<!-- 		<property name="catalogService" ref="catalogServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 会员等级 -->
+<!-- 	<bean id="accountRankActionManage" class="net.jeeshop.web.action.manage.accountRank.AccountRankAction"> -->
+<!-- 		<property name="server" ref="accountRankServiceManage"></property> -->
+<!-- 		<property name="accountRankService" ref="accountRankServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 网站会员 -->
+<!-- 	<bean id="accountActionManage" class="net.jeeshop.web.action.manage.account.AccountAction"> -->
+<!-- 		<property name="server" ref="accountServiceManage"></property> -->
+<!-- 		<property name="accountService" ref="accountServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 产品 -->
+<!-- 	<bean id="productActionManage" class="net.jeeshop.web.action.manage.product.ProductAction"> -->
+<!-- 		<property name="server" ref="productServiceManage"></property> -->
+<!-- 		<property name="productService" ref="productServiceManage"></property> -->
+<!-- 		<property name="attributeService" ref="attributeServiceManage"></property> -->
+<!-- 		<property name="attribute_linkService" ref="attribute_linkServiceManage"></property> -->
+<!-- 		<property name="manageCache" ref="manageCache"></property> -->
+<!-- 		<property name="specService" ref="specServiceManage"></property> -->
+<!-- 		<property name="giftService" ref="giftServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 订单 -->
+<!-- 	<bean id="orderActionManage" class="net.jeeshop.web.action.manage.order.OrderAction"> -->
+<!-- 		<property name="server" ref="orderServiceManage"></property> -->
+<!-- 		<property name="orderdetailService" ref="orderdetailServiceManage"></property> -->
+<!-- 		<property name="orderService" ref="orderServiceManage"></property> -->
+<!-- 		<property name="productService" ref="productServiceManage"></property> -->
+<!-- 		<property name="orderpayService" ref="orderpayServiceManage"></property> -->
+<!-- 		<property name="ordershipService" ref="ordershipServiceManage"></property> -->
+<!-- 		<property name="orderlogService" ref="orderlogServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 导航栏目 -->
+<!-- 	<bean id="navigationActionManage" class="net.jeeshop.web.action.manage.navigation.NavigationAction"> -->
+<!-- 		<property name="server" ref="navigationServiceManage"></property> -->
+<!-- 		<property name="navigationService" ref="navigationServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 日志管理 -->
+<!-- 	<bean id="systemlogActionManage" class="net.jeeshop.web.action.manage.systemlog.SystemlogAction"> -->
+<!-- 		<property name="server" ref="systemlogServiceManage"></property> -->
+<!-- 		<property name="systemlogService" ref="systemlogServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 区域管理 -->
+<!-- 	<bean id="areaActionManage" class="net.jeeshop.web.action.manage.area.AreaAction"> -->
+<!-- 		<property name="server" ref="areaServiceManage"></property> -->
+<!-- 		<property name="areaService" ref="areaServiceManage"></property> -->
+<!-- 		<property name="frontCache" ref="frontCache"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 日志管理 -->
+<!-- 	<bean id="systemSettingActionManage" class="net.jeeshop.web.action.manage.systemSetting.SystemSettingAction"> -->
+<!-- 		<property name="server" ref="systemSettingServiceManage"></property> -->
+<!-- 		<property name="systemSettingService" ref="systemSettingServiceManage"></property> -->
+<!-- 		<property name="frontCache" ref="frontCache"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 评论管理 -->
+<!-- 	<bean id="commentActionManage" class="net.jeeshop.web.action.manage.comment.CommentAction"> -->
+<!-- 		<property name="server" ref="commentServiceManage"></property> -->
+<!-- 		<property name="commentService" ref="commentServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- keyvalue -->
+<!-- 	<bean id="keyvalueActionManage" class="net.jeeshop.web.action.manage.keyvalue.KeyvalueAction"> -->
+<!-- 		<property name="server" ref="keyvalueServiceManage"></property> -->
+<!-- 		<property name="keyvalueService" ref="keyvalueServiceManage"></property> -->
+<!-- 		<property name="frontCache" ref="frontCache"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 产品属性管理 -->
+<!-- 	<bean id="attributeActionManage" class="net.jeeshop.web.action.manage.attribute.AttributeAction"> -->
+<!-- 		<property name="server" ref="attributeServiceManage"></property> -->
+<!-- 		<property name="attributeService" ref="attributeServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 广告管理 -->
+<!-- 	<bean id="advertActionManage" class="net.jeeshop.web.action.manage.advert.AdvertAction"> -->
+<!-- 		<property name="server" ref="advertServiceManage"></property> -->
+<!-- 		<property name="advertService" ref="advertServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 问卷管理 -->
+<!-- 	<bean id="questionnaireActionManage" class="net.jeeshop.web.action.manage.questionnaire.QuestionnaireAction"> -->
+<!-- 		<property name="server" ref="questionnaireServiceManage"></property> -->
+<!-- 		<property name="questionnaireService" ref="questionnaireServiceManage"></property> -->
+<!-- 		<property name="questionnaireItemService" ref="questionnaireItemServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 支付方式管理 -->
+<!-- 	<bean id="payActionManage" class="net.jeeshop.web.action.manage.pay.PayAction"> -->
+<!-- 		<property name="server" ref="payServiceManage"></property> -->
+<!-- 		<property name="payService" ref="payServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 存储方式管理 -->
+<!-- 	<bean id="ossActionManage" class="net.jeeshop.web.action.manage.oss.OssAction"> -->
+<!-- 		<property name="server" ref="ossServiceManage"></property> -->
+<!-- 		<property name="ossService" ref="ossServiceManage"></property> -->
+<!-- 		<property name="manageCache" ref="manageCache"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 评论方式管理 -->
+<!-- 	<bean id="commentTypeActionManage" class="net.jeeshop.web.action.manage.commentType.CommentTypeAction"> -->
+<!-- 		<property name="server" ref="commentTypeServiceManage"></property> -->
+<!-- 		<property name="commentTypeService" ref="commentTypeServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 评论方式管理 -->
+<!-- 	<bean id="reportActionManage" class="net.jeeshop.web.action.manage.report.ReportAction"> -->
+<!-- 		<property name="productService" ref="productServiceManage"></property> -->
+<!-- 		<property name="orderService" ref="orderServiceManage"></property> -->
+<!-- 		<property name="orderdetailService" ref="orderdetailServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 物流管理 -->
+<!-- 	<bean id="expressActionManage" class="net.jeeshop.web.action.manage.express.ExpressAction"> -->
+<!-- 		<property name="server" ref="expressServiceManage"></property> -->
+<!-- 		<property name="expressService" ref="expressServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- SMS短信管理 -->
+<!-- 	<bean id="smsActionManage" class="net.jeeshop.web.action.manage.sms.SmsAction"> -->
+<!-- 		<property name="server" ref="smsServiceManage"></property> -->
+<!-- 		<property name="smsService" ref="smsServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 商品到货通知 -->
+<!-- 	<bean id="emailNotifyProductActionManage" class="net.jeeshop.web.action.manage.emailNotifyProduct.EmailNotifyProductAction"> -->
+<!-- 		<property name="server" ref="emailNotifyProductServiceManage"></property> -->
+<!-- 		<property name="emailNotifyProductService" ref="emailNotifyProductServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 通知模板 -->
+<!-- 	<bean id="notifyTemplateActionManage" class="net.jeeshop.web.action.manage.notifyTemplate.NotifyTemplateAction"> -->
+<!-- 		<property name="server" ref="notifyTemplateServiceManage"></property> -->
+<!-- 		<property name="notifyTemplateService" ref="notifyTemplateServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 邮件管理 -->
+<!-- 	<bean id="emailActionManage" class="net.jeeshop.web.action.manage.email.EmailAction"> -->
+<!-- 		<property name="server" ref="emailServiceManage"></property> -->
+<!-- 		<property name="emailService" ref="emailServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 邮件管理 -->
+<!-- 	<bean id="taskActionManage" class="net.jeeshop.web.action.manage.task.TaskAction"> -->
+<!-- 		<property name="server" ref="taskServiceManage"></property> -->
+<!-- 		<property name="taskService" ref="taskServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 促销活动管理 -->
+<!-- 	<bean id="activityActionManage" class="net.jeeshop.web.action.manage.activity.ActivityAction"> -->
+<!-- 		<property name="server" ref="activityServiceManage"></property> -->
+<!-- 		<property name="activityService" ref="activityServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 商品赠品管理 -->
+<!-- 	<bean id="giftActionManage" class="net.jeeshop.web.action.manage.gift.GiftAction"> -->
+<!-- 		<property name="server" ref="giftServiceManage"></property> -->
+<!-- 		<property name="giftService" ref="giftServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 热门查询管理 -->
+<!-- 	<bean id="hotqueryActionManage" class="net.jeeshop.web.action.manage.hotquery.HotqueryAction"> -->
+<!-- 		<property name="server" ref="hotqueryServiceManage"></property> -->
+<!-- 		<property name="hotqueryService" ref="hotqueryServiceManage"></property> -->
+<!-- 	</bean> -->
+	
+	
+</beans>

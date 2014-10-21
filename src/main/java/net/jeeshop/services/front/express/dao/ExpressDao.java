@@ -1,0 +1,1 @@
+package net.jeeshop.services.front.express.dao;import net.jeeshop.core.DaoManager;import net.jeeshop.services.front.express.bean.Express;public interface ExpressDao extends DaoManager<Express> {}

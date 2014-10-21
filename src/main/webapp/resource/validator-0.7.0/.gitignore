@@ -1,0 +1,16 @@
+node_modules
+Thumbs.db
+.DS_Store
+.sass-cache
+.cache
+.tmproj
+.project
+.settings
+*.esproj
+*.sublime-project
+*.sublime-workspace
+*.patch
+*.diff
+*.bak
+/src/libs
+/src/test.html

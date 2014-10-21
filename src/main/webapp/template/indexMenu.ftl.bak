@@ -1,0 +1,65 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <s:if test="#session.selectMenu==''">
+			<a class="navbar-brand" href="<%=request.getContextPath()%>" style="font-weight: bold;">myshop</a>
+			</s:if>
+			<s:else>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>" style="font-weight: bold;">myshop</a>
+			</s:else>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+          
+	          	<#if (indexMenuList?exists) && (indexMenuList?size >0) >
+	          		<#list indexMenuList as indexMenu>
+	          			<#if indexMenu_index==0>
+		          			<s:if test="#session.selectMenu==null or #session.selectMenu=='' or #session.selectMenu=='index'">
+								<li class="active"><a href="<%=request.getContextPath()%>/">${indexMenu.name}</a></li>
+							</s:if>
+							<s:else>
+								<li><a href="<%=request.getContextPath()%>/">${indexMenu.name}</a></li>
+							</s:else>
+						<#else>
+							<s:if test="#session.selectMenu=='${indexMenu.id}'">
+								<li class="active"><a href="<%=request.getContextPath()%>/">${indexMenu.name}</a></li>
+							</s:if>
+							<s:else>
+								<li><a href="<%=request.getContextPath()%>/">${indexMenu.name}</a></li>
+							</s:else>
+							
+						</#if>
+	          		</#list>
+	          	</#if>
+          	
+			</ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          	<s:if test="#session.user_info==null">
+	            <li><a href="login.jsp">登陆</a></li>
+	            <li><a href="regeist.jsp" target="_blank">注册</a></li>
+          	</s:if>
+          	<s:else>
+          		<li><a><s:property value="#session.user_info.nickname"/>(<s:property value="#session.user_info.account"/>)</a></li>
+          		<li><a href="account!loginout.action">注销</a></li>
+          	</s:else>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+	<div id="site-navbar"
+		style="position: fixed; top: -4px; left: -3px; border: 0; z-index: 2000; padding: 0; margin: 0;">
+		<a href="<%=request.getContextPath()%>" title="返回首页" style="background: none;"><img
+			src="<%=request.getContextPath() %>/resource/images/return-back.png"
+			style="padding: 0; margin: 0; border: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;"></a>
+	</div>
+
+

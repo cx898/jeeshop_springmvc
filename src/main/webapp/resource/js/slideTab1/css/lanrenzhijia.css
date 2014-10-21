@@ -1,0 +1,41 @@
+/* 浠ｇ爜鏁寸悊锛氭噿浜轰箣瀹�www.lanrenzhijia.com */
+/* *{ margin:0; padding:0; list-style:none;} */
+body{ font-size:12px;}  
+img{ border:none;}
+/*public*/
+.fl{display:inline;float:left}
+.fr{display:inline;float:right}
+.cf:after{content:"";clear:both;display:block;height:0;overflow:hidden}
+.cf{zoom:1}
+.pb10{padding-bottom:10px}
+.mt10{margin-top:10px}
+/*main*/
+.lanrenzhijia {
+	width: 100%;
+	margin: 0px auto;
+	background: #fff;
+	padding: 0px;
+	box-shadow: 0 0 10px #ccc;
+	
+}
+.lanrenzhijia *,.lanrenzhijia li,.lanrenzhijia p {
+	margin:0; padding:0; list-style:none;
+}
+
+.lanrenzhijia .title{height:20px;border-bottom: 3px solid #e7e7e7;padding-bottom:10px;}
+.lanrenzhijia .title h2{ font-size: 20px;font-family: "microsoft yahei";}
+.lanrenzhijia .title-list{ position: relative; top: 6px;}
+.lanrenzhijia .title-list li{ width: 146px; line-height: 20px; text-align: center; float: left; display: inline;}
+.lanrenzhijia .title-list li.on{ color: #ff6600; font-weight: bold;}
+.lanrenzhijia .title-list p{position:absolute;top:24px;left:0px;width:146px;height:7px;border-top: 3px solid #ff6600; overflow: hidden; text-align: center;}
+.lanrenzhijia .title-list b{display:inline-block;width:0;height:0;margin-top:-3px;border-style:solid dashed dashed dashed;border-width:9px;border-color: #ff6600 #fff #fff #fff;overflow: hidden;zoom: 1;font-size: 0;}
+.product{ height: 200px; position: relative; overflow: hidden; display: none; margin-top: 20px;}
+.product ul{ position: absolute; left: 0px;}
+.product-wrap .show{ display: block;}
+.product-wrap .product li{ float: left; display: inline; margin-left: 13px;background: #f3f3f3;border: 2px solid #fafafa; transition:0.4s;-webkit-transition:0.4s;-moz-transition: 0.4s;-o-transition: 0.4s;-ms-transition: 0.4s;}
+.product-wrap .product li.ml0{margin-left:0px;}
+.product-wrap .product li a.imgwrap{ display: block; width: 226px; height: 200px; background: #fff; text-align:center;}
+.product-wrap .product li p{padding-left: 15px;color: #666666;line-height: 22px;}
+.product-wrap .product li p a{ color: #666666; text-decoration: none;}
+.product-wrap .product li p a:hover{ color: #ff6600; text-decoration: none;}
+/* 浠ｇ爜鏁寸悊锛氭噿浜轰箣瀹�www.lanrenzhijia.com */

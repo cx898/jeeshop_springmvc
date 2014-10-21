@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SmallSlider--jQuery Plugin for image slide -- 图片轮播jQuery插件</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/lab.css" rel="stylesheet" type="text/css" />
+<link href="css/smallslider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.smallslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+    $('#flashbox').smallslider({
+        switchEffect: 'ease',
+        switchEase: 'easeOutBounce',
+        switchPath: 'up',
+        textPosition: 'top',
+        textAlign: 'center',
+        textSwitch: 2
+    });
+
+    $('#exp1').smallslider();
+
+    $('#exp2').smallslider({
+        switchEffect: 'ease',
+        switchMode: 'click',
+        showText: false
+    });
+
+    $('#exp3').smallslider({
+        switchEffect: 'ease',
+        switchPath: 'up',
+        textAlign: 'center',
+        textSwitch: 1,
+        showButtons: false
+    });
+
+});
+</script>
+</head>
+<body>
+<div id="main">
+  <div id="header">
+    <h1>SmallSlider 图片轮播插件</h1>
+    <p>Version 0.4 最后更新：2010年3月15日</p>
+  </div>
+  <div id="nav">
+    <ul>
+      <li><a href="#example">示例</a></li>
+      <li><a href="#parameter">参数</a></li>
+      <li><a href="#down">下载</a></li>
+    </ul>
+  </div>
+  <div id="contain">
+    <div class="section">
+      <p>某天，在网上闲逛，碰到一个Slider的jQuery插件，受其启发，改写成了这个插件SmallSlider插件，几经修改，最后成了现在这个。
+        2009年7月3日，发布第一版，0.4版本发布，基本上符合标准jQuery插件开发，由于小弟能力有限，暂时实现了基本的切换效果，
+        特效方面稍显不足，源码公布网上，期待有高人继续能改进，多加进切换特效。</p>
+    </div>
+    <div class="update">
+      <h2>更新</h2>
+      <p><span>2010-03-15</span>0.4版本代码全部翻新，更加符合jQuery插件标准写法，修复部分切换过度问题；</p>
+      <p><span>2010-03-11</span>0.3版本升级分离了标题显示，标题可以选择独立出来切换，使其更加接近Flash切换；</p>
+      <p><span>2010-02-02</span>0.2版本升级添加滑动切换效果，修复切换过度不自然问题；</p>
+      <p><span>2009-07-03</span>0.1版本2009-07-3首发，实现基本切换效果；</p>
+    </div>
+    <div class="compatible"><span class="ie"><img src="images/IE.png" alt="IE" /><em>IE 6+</em></span><span class="firefox"><img src="images/Firefox.png" alt="Firefox" /><em>Firefox 3+</em></span><span class="chrome"><img src="images/Chrome.png" alt="Chrome" /><em>Chrome 3+</em></span><span class="safari"><img src="images/Safari.png" alt="Safari" /><em>Safari 3+</em></span><span class="opera"><img src="images/Opera.png" alt="Opera" /><em>Opera 9.5+</em></span></div>
+    <h2>特点</h2>
+    <div class="box">
+      <ol class="list">
+        <li>调用简单：只需标准的HTML代码加一句JS代码，无须任何附加代码</li>
+        <li>个性定制：按钮和标题显示的位置可以随意定制</li>
+        <li>特效切换：透明变幻或滑动切换，切换更加自然</li>
+        <li>安全代码：经过数小时Leak Monitor内存泄漏测试，绝对没有内存泄漏问题</li>
+        <li>多个轮播：经封装的轮播写法，支持页面上同时有多个轮播图</li>
+      </ol>
+    </div>
+    <div id="d"></div>
+    <h2>先看看效果：</h2>
+    <div class="expo">
+      <div id="flashbox" class="smallslider">
+        <ul>
+          <li><a href="images/001.jpg"><img src="images/001.jpg" width="320" height="200" alt="图片标题1" /></a></li>
+          <li><a href="images/002.jpg"><img src="images/002.jpg" width="320" height="200" alt="图片标题2" /></a></li>
+          <li><a href="images/003.jpg"><img src="images/003.jpg" width="320" height="200" alt="图片标题3" /></a></li>
+          <li><a href="images/004.jpg"><img src="images/004.jpg" width="320" height="200" alt="图片标题4" /></a></li>
+          <li><a href="images/005.jpg"><img src="images/005.jpg" width="320" height="200" alt="图片标题5" /></a></li>
+        </ul>
+      </div>
+    </div>
+    <p>要做到上面的效果，只需要标准的html代码，加上一句js调用即可，按钮和标题完全由js生成，不需额外写任何代码。</p>
+    <h2>示例代码：</h2>
+    <div class="code">
+      <h2>HTML部分</h2>
+      <div class="insertcode">
+        <div class="codetit">HTML代码：</div>
+        <ol class="html4strict lang-html4strict">
+          <li><span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">div</span> <span style="color: #006;">id</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;flashbox&quot;</span> <span style="color: #006;">class</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;smallslider&quot;</span>&gt;</span></li>
+          <li>&nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">ul</span>&gt;</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">li</span>&gt;&lt;<span style="color: #000; font-weight: 700;">a</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;#&quot;</span>&gt;&lt;<span style="color: #000; font-weight: 700;">img</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;images/001.jpg&quot;</span> <span style="color: #006;">width</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;320&quot;</span> <span style="color: #006;">height</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;200&quot;</span> <span style="color: #006;">alt</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;图片标题1&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">a</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">li</span>&gt;</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">li</span>&gt;&lt;<span style="color: #000; font-weight: 700;">a</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;#&quot;</span>&gt;&lt;<span style="color: #000; font-weight: 700;">img</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;images/002.jpg&quot;</span> <span style="color: #006;">width</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;320&quot;</span> <span style="color: #006;">height</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;200&quot;</span> <span style="color: #006;">alt</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;图片标题2&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">a</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">li</span>&gt;</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">li</span>&gt;&lt;<span style="color: #000; font-weight: 700;">a</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;#&quot;</span>&gt;&lt;<span style="color: #000; font-weight: 700;">img</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;images/003.jpg&quot;</span> <span style="color: #006;">width</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;320&quot;</span> <span style="color: #006;">height</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;200&quot;</span> <span style="color: #006;">alt</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;图片标题3&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">a</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">li</span>&gt;</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">li</span>&gt;&lt;<span style="color: #000; font-weight: 700;">a</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;#&quot;</span>&gt;&lt;<span style="color: #000; font-weight: 700;">img</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;images/004.jpg&quot;</span> <span style="color: #006;">width</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;320&quot;</span> <span style="color: #006;">height</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;200&quot;</span> <span style="color: #006;">alt</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;图片标题4&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">a</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">li</span>&gt;</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">li</span>&gt;&lt;<span style="color: #000; font-weight: 700;">a</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;#&quot;</span>&gt;&lt;<span style="color: #000; font-weight: 700;">img</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;images/005.jpg&quot;</span> <span style="color: #006;">width</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;320&quot;</span> <span style="color: #006;">height</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;200&quot;</span> <span style="color: #006;">alt</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;图片标题5&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">a</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">li</span>&gt;</span></li>
+          <li>&nbsp; <span style="color: #090;">&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">ul</span>&gt;</span></li>
+          <li><span style="color: #090;">&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">div</span>&gt;</span></li>
+        </ol>
+      </div>
+      <h2>JS部分</h2>
+      <div class="insertcode">
+        <div class="codetit">JS代码：</div>
+        <ol class="javascript lang-javascript">
+          <li><span style="color: #393;">&lt;</span>script type<span style="color: #393;">=</span><span style="color: #36C;">&quot;text/javascript&quot;</span><span style="color: #393;">&gt;</span></li>
+          <li>$<span style="color: #090;">(</span>document<span style="color: #090;">)</span>.<span style="color: #606;">ready</span><span style="color: #090;">(</span><span style="color: #036; font-weight: 700;">function</span><span style="color: #090;">(</span><span style="color: #090;">)</span><span style="color: #090;">{</span></li>
+          <li>&nbsp; &nbsp; $<span style="color: #090;">(</span><span style="color: #36C;">&#39;#flashbox&#39;</span><span style="color: #090;">)</span>.<span style="color: #606;">smallslider</span><span style="color: #090;">(</span><span style="color: #090;">{</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; switchEffect<span style="color: #393;">:</span> <span style="color: #36C;">&#39;ease&#39;</span><span style="color: #393;">,</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; switchEase<span style="color: #393;">:</span> <span style="color: #36C;">&#39;easeOutBounce&#39;</span><span style="color: #393;">,</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; switchPath<span style="color: #393;">:</span> <span style="color: #36C;">&#39;up&#39;</span><span style="color: #393;">,</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; textPosition<span style="color: #393;">:</span> <span style="color: #36C;">&#39;top&#39;</span><span style="color: #393;">,</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; textAlign<span style="color: #393;">:</span> <span style="color: #36C;">&#39;center&#39;</span><span style="color: #393;">,</span></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; textSwitch<span style="color: #393;">:</span> <span style="color: #C00;">2</span></li>
+          <li>&nbsp; &nbsp; <span style="color: #090;">}</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+          <li><span style="color: #090;">}</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+          <li><span style="color: #393;">&lt;/</span>script<span style="color: #393;">&gt;</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="section">
+      <div style="line-height: 2em;">怎么样？够简单吧？完全不需要写额外的HTML代码；<br />
+        调用方法：<br />
+        1、保证你的页面链接进3个文件：<br />
+        <div class="insertcode">
+          <div class="codetit">HTML代码：</div>
+          <ol class="html4strict lang-html4strict">
+            <li><span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">link</span> <span style="color: #006;">href</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;css/smallslider.css&quot;</span> <span style="color: #006;">rel</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;stylesheet&quot;</span> <span style="color: #006;">type</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;text/css&quot;</span> <span style="color: #6C6;">/</span>&gt;</span></li>
+            <li><span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">script</span> <span style="color: #006;">type</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;text/javascript&quot;</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;js/jquery-1.3.2.min.js&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">script</span>&gt;</span></li>
+            <li><span style="color: #090;">&lt;<span style="color: #000; font-weight: 700;">script</span> <span style="color: #006;">type</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;text/javascript&quot;</span> <span style="color: #006;">src</span><span style="color: #6C6;">=</span><span style="color: #F00;">&quot;js/jquery.smallslider.js&quot;</span> <span style="color: #6C6;">/</span>&gt;&lt;<span style="color: #6C6;">/</span><span style="color: #000; font-weight: 700;">script</span>&gt;</span></li>
+          </ol>
+        </div>
+        2、HTML 结构如下：<br />
+        &nbsp;&nbsp;1)，最外层必须为一个div元素，这个div需要指定一个class为：smallslider<br />
+        &nbsp;&nbsp;2)，div内的HTML结构为一个ul标签，ul内为li标签，li内为a标签，a内为img标签，即：div---&gt;ul---&gt;li---&gt;a---&gt;img<br />
+        &nbsp;&nbsp;3)，img标签的alt属性为显示的标题文字内容，所以必须要有<br />
+        3、JS 初始化图片轮播：<br />
+        <div class="insertcode">
+          <div class="codetit">JS代码：</div>
+          <ol class="javascript lang-javascript">
+            <li><span style="color: #393;">&lt;</span>script type<span style="color: #393;">=</span><span style="color: #36C;">&quot;text/javascript&quot;</span><span style="color: #393;">&gt;</span></li>
+            <li>$<span style="color: #090;">(</span>document<span style="color: #090;">)</span>.<span style="color: #606;">ready</span><span style="color: #090;">(</span><span style="color: #036; font-weight: 700;">function</span><span style="color: #090;">(</span><span style="color: #090;">)</span><span style="color: #090;">{</span></li>
+            <li>&nbsp; &nbsp; $<span style="color: #090;">(</span><span style="color: #36C;">&#39;#flashbox&#39;</span><span style="color: #090;">)</span>.<span style="color: #606;">smallslider</span><span style="color: #090;">()</span><span style="color: #393;">;</span></li>
+            <li><span style="color: #090;">}</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+            <li><span style="color: #393;">&lt;/</span>script<span style="color: #393;">&gt;</span></li>
+          </ol>
+        </div>
+        有一点要注意，就是必须固定你的调用元素的高度和宽度。一般情况下，切换的图片高度和宽度都是固定的，如果你图片大小不一，切换的时候会很难看。</div>
+    </div>
+    <h2 id="parameter">参数列表：</h2>
+    <div class="para">
+      <table class="tblist" cellpadding="5" cellspacing="1">
+        <tr>
+          <th>参数</th>
+          <th>默认值</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <th>time</th>
+          <th>3000</th>
+          <td>切换时间间隔，单位毫秒，1秒=1000毫秒</td>
+        </tr>
+        <tr>
+          <th>autoStart</th>
+          <th>true</th>
+          <td>是否自动开始播放</td>
+        </tr>
+        <tr>
+          <th>onImageStop</th>
+          <th>false</th>
+          <td>鼠标放在图片上时，是否停止播放</td>
+        </tr>
+        <tr>
+          <th>switchMode</th>
+          <th>'hover'</th>
+          <td>图片切换的方式，click为单击切换，hover为鼠标移动到按钮上时切换</td>
+        </tr>
+        <tr>
+          <th>switchEffect</th>
+          <th>'fadeOut'</th>
+          <td>切换特效，可选值为：fadeOut，ease，none</td>
+        </tr>
+        <tr>
+          <th>switchPath</th>
+          <th>'left'</th>
+          <td>切换的方向，可选值为：up ， left ，即向上，向左</td>
+        </tr>
+        <tr>
+          <th>switchEase</th>
+          <th>'easeOutQuart'</th>
+          <td>当switchEffect为'ease'时可用；可选值列表如下：["easeInQuad", "easeOutQuad", "easeInOutQuad", "easeInCubic", "easeOutCubic",
+            "easeInOutCubic", "easeInQuart", "easeOutQuart", "easeInOutQuart", "easeInQuint", "easeOutQuint", "easeInOutQuint",
+            "easeInSine", "easeOutSine", "easeInOutSine", "easeInExpo", "easeOutExpo", "easeInOutExpo", "easeInCirc", "easeOutCirc", "easeInOutCirc", "easeInElastic",
+            "easeOutElastic", "easeInOutElastic", "easeInBack", "easeOutBack", "easeInOutBack",
+            "easeInBounce", "easeOutBounce", "easeInOutBounce"]，各种切换方式之间差别不是很大，有兴趣可以逐一测试</td>
+        </tr>
+        <tr>
+          <th>switchTime</th>
+          <th>600</th>
+          <td>切换时间，单位毫秒，1秒=1000毫秒</td>
+        </tr>
+        <tr>
+          <th>buttonPosition</th>
+          <th>'rightBottom'</th>
+          <td>按钮位置表示，共有四个值：leftTop，leftBottom，rightTop，rightBottom</td>
+        </tr>
+        <tr>
+          <th>buttonOffsetX</th>
+          <th>10</th>
+          <td>水平方向上的按钮偏移位置，指向中心部移动多少，这里是数值，不加px</td>
+        </tr>
+        <tr>
+          <th>buttonOffsetY</th>
+          <th>4</th>
+          <td>竖直方向上的按钮偏移位置，指向中心部移动多少，这里是数值，不加px</td>
+        </tr>
+        <tr>
+          <th>buttonSpace</th>
+          <th>4</th>
+          <td>按钮之间的间隔 单位为像素，但不要加px</td>
+        </tr>
+        <tr>
+          <th>showText</th>
+          <th>true</th>
+          <td>是否显示标题，如果不显示，则只显示按钮</td>
+        </tr>
+        <tr>
+          <th>showButtons</th>
+          <th>true</th>
+          <td>是否显示按钮，默认显示</td>
+        </tr>
+        <tr>
+          <th>textLink</th>
+          <th>true</th>
+          <td>是否给显示的标题加上链接，如果为false，只显示标题，标题不可单击</td>
+        </tr>
+        <tr>
+          <th>textSwitch</th>
+          <th>0</th>
+          <td>标题是否运动显示，如果为0则不动，1 标题动，2 标题和背景一起动</td>
+        </tr>
+        <tr>
+          <th>textPosition</th>
+          <th>'bottom'</th>
+          <td>标题栏的位置，默认为空，即和按钮的位置一致，取值 top ,  bottom</td>
+        </tr>
+        <tr>
+          <th>textAlign</th>
+          <th>'left'</th>
+          <td>标题栏取 top 或 bottom 时，有效，left, center, right</td>
+        </tr>
+      </table>
+    </div>
+    <h2 id="example">一组实例：</h2>
+    <div class="expoes">
+      <div class="expo" id="expo1">
+        <div id="exp1" class="exmp smallslider">
+          <ul>
+            <li><a href="images/001.jpg"><img src="images/001.jpg" width="320" height="200" alt="图片标题1" /></a></li>
+            <li><a href="images/002.jpg"><img src="images/002.jpg" width="320" height="200" alt="图片标题2" /></a></li>
+            <li><a href="images/003.jpg"><img src="images/003.jpg" width="320" height="200" alt="图片标题3" /></a></li>
+            <li><a href="images/004.jpg"><img src="images/004.jpg" width="320" height="200" alt="图片标题4" /></a></li>
+            <li><a href="images/005.jpg"><img src="images/005.jpg" width="320" height="200" alt="图片标题5" /></a></li>
+          </ul>
+        </div>
+        <div class="exmp-txt">
+          <div class="insertcode">
+            <div class="codetit">javascript代码</div>
+            <ol class="javascript lang-javascript">
+              <li>
+                <div><span style="color: #060; font-style: italic;">//完全默认参数：</span></div>
+              </li>
+              <li>&nbsp; &nbsp; $<span style="color: #090;">(</span><span style="color: #36C;">&#39;#exp1&#39;</span><span style="color: #090;">)</span>.<span style="color: #606;">smallslider</span><span style="color: #090;">(</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="clearit"></div>
+      </div>
+      <!-- end.exp1 -->
+      <div class="expo"  id="expo2">
+        <div id="exp2" class="exmp smallslider">
+          <ul>
+            <li><a href="images/001.jpg"><img src="images/001.jpg" width="320" height="200" alt="图片标题1" /></a></li>
+            <li><a href="images/002.jpg"><img src="images/002.jpg" width="320" height="200" alt="图片标题2" /></a></li>
+            <li><a href="images/003.jpg"><img src="images/003.jpg" width="320" height="200" alt="图片标题3" /></a></li>
+            <li><a href="images/004.jpg"><img src="images/004.jpg" width="320" height="200" alt="图片标题4" /></a></li>
+            <li><a href="images/005.jpg"><img src="images/005.jpg" width="320" height="200" alt="图片标题5" /></a></li>
+          </ul>
+        </div>
+        <div class="exmp-txt">
+          <div class="insertcode">
+            <div class="codetit">javascript代码</div>
+            <ol class="javascript lang-javascript">
+              <li><span style="color: #060; font-style: italic;">// 只显示按钮，不显示文字，单击按钮切换</span></li>
+              <li>&nbsp; &nbsp; $<span style="color: #090;">(</span><span style="color: #36C;">&#39;#exp2&#39;</span><span style="color: #090;">)</span>.<span style="color: #606;">smallslider</span><span style="color: #090;">(</span><span style="color: #090;">{</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; switchEffect<span style="color: #393;">:</span> <span style="color: #36C;">&#39;ease&#39;</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; switchMode<span style="color: #393;">:</span> <span style="color: #36C;">&#39;click&#39;</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; showText<span style="color: #393;">:</span> <span style="color: #036; font-weight: 700;">false</span></li>
+              <li>&nbsp; &nbsp; <span style="color: #090;">}</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="clearit"></div>
+      </div>
+      <!-- end.exp3 -->
+      <div class="expo">
+        <div id="exp3" class="exmp smallslider">
+          <ul>
+            <li><a href="images/001.jpg"><img src="images/001.jpg" width="320" height="200" alt="图片标题1" /></a></li>
+            <li><a href="images/002.jpg"><img src="images/002.jpg" width="320" height="200" alt="图片标题2" /></a></li>
+            <li><a href="images/003.jpg"><img src="images/003.jpg" width="320" height="200" alt="图片标题3" /></a></li>
+            <li><a href="images/004.jpg"><img src="images/004.jpg" width="320" height="200" alt="图片标题4" /></a></li>
+            <li><a href="images/005.jpg"><img src="images/005.jpg" width="320" height="200" alt="图片标题5" /></a></li>
+          </ul>
+        </div>
+        <div class="exmp-txt">
+          <div class="insertcode">
+            <div class="codetit">javascript代码</div>
+            <ol class="javascript lang-javascript">
+              <li><span style="color: #060; font-style: italic;">// 只显示文字，不显示按钮，文字切换，文字背景不动</span></li>
+              <li>&nbsp; &nbsp; $<span style="color: #090;">(</span><span style="color: #36C;">&#39;#exp3&#39;</span><span style="color: #090;">)</span>.<span style="color: #606;">smallslider</span><span style="color: #090;">(</span><span style="color: #090;">{</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; switchEffect<span style="color: #393;">:</span> <span style="color: #36C;">&#39;ease&#39;</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; switchPath<span style="color: #393;">:</span> <span style="color: #36C;">&#39;up&#39;</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; textAlign<span style="color: #393;">:</span> <span style="color: #36C;">&#39;center&#39;</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; textSwitch<span style="color: #393;">:</span> <span style="color: #C00;">1</span><span style="color: #393;">,</span></li>
+              <li>&nbsp; &nbsp; &nbsp; &nbsp; showButtons<span style="color: #393;">:</span> <span style="color: #036; font-weight: 700;">false</span></li>
+              <li>&nbsp; &nbsp; <span style="color: #090;">}</span><span style="color: #090;">)</span><span style="color: #393;">;</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="clearit"></div>
+      </div>
+    </div>
+    <div id="down">
+      <h2>下载</h2>
+      <p><a href="http://www.cssue.com/wp-content/plugins/download-monitor/download.php?id=23">下载 ( .zip 430KB)</a></p>
+    </div>
+  </div>
+  <!-- end.contain -->
+  <div id="footer" class="span-24 last center">
+    <p><a target="_blank" href="http://validator.w3.org/check?uri=referer"><img alt="Valid XHTML 1.0 Transitional" src="images/valid-xhtml-blue.png" /></a><a target="_blank" href="http://jigsaw.w3.org/css-validator/check/referer"><img alt="Valid CSS!" src="images/valid-css-blue.png" /></a></p>
+  </div>
+</div>
+<!-- end.main -->
+</body>
+</html>

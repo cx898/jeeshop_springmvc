@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 基础的DAO，所有的业务逻辑实现类必须注入此dao才能进行数据库操作 -->
+	<bean id="baseDao" class="net.jeeshop.core.dao.BaseDao">
+		<property name="sqlSessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 以下是系统的核心，包括：用户、角色、权限、资源 等等模块 -->
+
+	<!-- 用户 -->
+	<bean id="userServiceManage" class="net.jeeshop.services.manage.system.impl.UserService">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+<!-- 	<bean id="userActionManage" class="net.jeeshop.web.action.manage.system.UserAction" > -->
+<!-- 		<property name="server" ref="userServiceManage"></property> -->
+<!-- 		<property name="userService" ref="userServiceManage"></property> -->
+<!-- 		<property name="roleService" ref="roleServiceManage"></property> -->
+<!-- 		<property name="systemlogService" ref="systemlogServiceManage"></property> -->
+<!-- 		<property name="manageCache" ref="manageCache"></property> -->
+<!-- 	</bean> -->
+
+	<!-- 角色 -->
+	<bean id="roleServiceManage" class=" net.jeeshop.services.manage.system.impl.RoleService">
+		<property name="dao" ref="baseDao"></property>
+		<property name="privilegeService" ref="privilegeServiceManage"></property>
+	</bean>
+<!-- 	<bean id="roleActionManage" class=" net.jeeshop.web.action.manage.system.RoleAction"> -->
+<!-- 		<property name="roleService" ref="roleServiceManage"></property> -->
+<!-- 	</bean> -->
+
+	<!-- 资源 -->
+	<bean id="menuServiceManage" class=" net.jeeshop.services.manage.system.impl.MenuService">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+<!-- 	<bean id="menuActionManage" class=" net.jeeshop.web.action.manage.system.MenuAction"> -->
+<!-- 		<property name="menuService" ref="menuServiceManage"></property> -->
+<!-- 		<property name="privilegeService" ref="privilegeServiceManage"></property> -->
+<!-- 	</bean> -->
+
+	<!-- 权限 -->
+	<bean id="privilegeServiceManage" class="  net.jeeshop.services.manage.system.impl.PrivilegeService">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+<!-- 	<bean id="privilegeActionManage" class="net.jeeshop.web.action.manage.system.PrivilegeAction"> -->
+<!-- 		<property name="privilegeService" ref="privilegeServiceManage"></property> -->
+<!-- 	</bean> -->
+</beans>

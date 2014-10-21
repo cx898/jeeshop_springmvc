@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+<!--     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" -->
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+	
+	<constant name="struts.multipart.maxSize" value="6846970006" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="false" />
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+	name="myRequestParser" class="net.jeeshop.core.servlet.RequestParseWrapper"
+	scope="default" optional="true" />
+	<constant name="struts.multipart.handler" value="myRequestParser" />
+
+<!-- 	后台拦截器配置 -->
+	<package name="struts-jeeshop-manage" extends="struts-default" namespace="/manage">
+		<interceptors>
+			<interceptor name="login2"
+				class="net.jeeshop.core.interceptor.ManageInterceptor">
+					
+			</interceptor>
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="login2">
+					<param name="excludeMethods">login</param>
+				
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault" />
+		<global-results>
+			<result name="login" type="redirect">/manage/admin.jsp</result>
+			<result name="not_privilege" type="redirect">/manage/common/error.jsp</result>
+			<result name="not_db_privilege" type="redirect">/manage/common/not_db_privilege.jsp</result>
+			<result name="error">/manage/common/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+	</package>
+	
+<!-- 	前台拦截器配置 -->
+	<package name="struts-jeeshop-front" extends="struts-default">
+		<interceptors>
+			<interceptor name="commonInterceptor"
+				class="net.jeeshop.core.interceptor.FrontInterceptor">
+					
+			</interceptor>
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="commonInterceptor">
+					<param name="excludeMethods">login</param>
+				
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault" />
+		<global-results>
+			<result name="invalid.token">/input333.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="toLogin">/user/login.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+	</package>
+
+	<include file="strutsSpring/manage/struts_system.xml" />
+	<include file="strutsSpring/manage/struts_services.xml" />
+	<include file="strutsSpring/front/struts_services.xml" />
+</struts>

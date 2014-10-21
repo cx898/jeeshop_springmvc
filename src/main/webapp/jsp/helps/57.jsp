@@ -1,0 +1,2 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<a href="http://www.spider.com.cn/help/wszf.html" target="_blank">网银支付</a><span style="color:#666666;font-family:Arial, Verdana, 宋体;background-color:#FFFFFF;">&nbsp;</span>

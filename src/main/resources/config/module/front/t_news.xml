@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="front.news">
+	<select id="front.news.selectPageList" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT t.id,t.title,t.content,
+		DATE_FORMAT(t.updatetime,'%Y-%m-%d')  updatetime,
+		DATE_FORMAT(t.createtime,'%Y-%m-%d')  createtime,
+		t.readerCount,t.status,t.lableID,t.order1,t.code   
+		FROM t_news t 
+		where 1=1  and t.status='y' 
+		<if test="title!=null and title!=''">
+			and t.title like CONCAT('%','${title}','%' )
+		</if>
+		<if test="type!=null and type!=''">
+			and t.type=#{type}
+		</if>
+		<if test="lableID!=null and lableID!=-1">
+			and t.lableID=#{lableID}
+		</if>
+		<if test="status!=null and status!=''">
+			and t.status=#{status}
+		</if>
+		<if test="createAccount!=null">
+			and t.createAccount=#{createAccount}
+		</if>
+		
+		<if test="type=='notice'">
+		  order by id desc  
+		</if>
+		<if test="type=='help'">
+		  order by order1  
+		</if>
+		limit #{offset},#{pageSize}
+	</select>
+	<select id="front.news.selectPageCount" parameterType="net.jeeshop.services.front.news.bean.News" resultType="java.lang.Integer">
+		select count(*) from (
+		SELECT t.id 
+		FROM t_news t
+		where 1=1 and t.status='y' 
+		<if test="title!=null and title!=''">
+			and t.title like CONCAT('%','${title}','%' )
+		</if>
+		<if test="type!=null and type!=''">
+			and t.type=#{type}
+		</if>
+		<if test="lableID!=null and lableID!=-1">
+			and t.lableID=#{lableID}
+		</if>
+		<if test="status!=null and status!=''">
+			and t.status=#{status}
+		</if>
+		<if test="createAccount!=null">
+			and t.createAccount=#{createAccount}
+		</if>
+		) a
+	</select>
+	
+	<select id="front.news.selectList" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT t.*    
+		FROM t_news t
+		where 1=1 and t.status='y' 
+		<if test="catalogID!=null and catalogID!=''">
+			and t.catalogID=#{catalogID}
+		</if>
+		<if test="type!=null and type!=''">
+			and t.type=#{type}
+		</if>
+		  order by order1  
+	</select>
+	
+	<select id="front.news.selectOne" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT * 
+		FROM t_news t
+		<where>
+			1=1 and t.status='y' 
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="front.news.selecIndexNews" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT * 
+		FROM t_news t
+		<where>
+			1=1 and t.type!=-1 and t.status='y' 
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+			<if test="type!=null">
+				and t.type=#{type}
+			</if>
+		</where> 
+		order by id desc limit 0,8 
+	</select>
+	
+	<select id="front.news.selectById" parameterType="string" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT * FROM t_news t where id=#{id}
+	</select>
+	
+	<update id="updateInBlackList" parameterType="string">
+		update t_news t set t.type=-1 where t.id=#{id}
+	</update>
+	
+	<update id="front.news.sync" parameterType="net.jeeshop.services.front.news.bean.News">
+		update t_news set status=#{status} where id=#{id}
+	</update>
+	
+	<select id="front.news.selectSimpleOne" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		select id,title,DATE_FORMAT(createtime,'%Y-%m-%d')  createtime from t_news where 1=1 
+		<if test="id!=null and id!=''"> and id=#{id} </if>
+		<if test="code!=null and code!=''"> and code=#{code} </if>
+	</select>
+
+	<select id="front.news.selectNoticeList" parameterType="net.jeeshop.services.front.news.bean.News" resultType="net.jeeshop.services.front.news.bean.News">
+		SELECT t.id,t.title
+		FROM t_news t
+		where 1=1 and t.type='notice' and t.status='y' order by id desc   
+		limit #{offset},#{pageSize}
+	</select>
+
+	
+</mapper>  

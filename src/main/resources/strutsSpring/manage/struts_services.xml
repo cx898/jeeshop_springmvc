@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 滚动图片维护 -->
+	<package name="indexImg" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="indexImg" class="indexImgActionManage">
+			<result name="toList">/manage/indexImg/indexImgList.jsp</result>
+			<result name="toEdit">/manage/indexImg/indexImgEdit.jsp</result>
+			<result name="toAdd">/manage/indexImg/indexImgEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 门户新闻 -->
+	<package name="news" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="news" class="newsActionManage">
+			<result name="toList">/manage/news/newsList.jsp</result>
+			<result name="toEdit">/manage/news/newsEdit.jsp</result>
+			<result name="toAdd">/manage/news/newsEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 友情链接 -->
+	<package name="navigation" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="navigation" class="navigationActionManage">
+			<result name="toList">/manage/navigation/navigationList.jsp</result>
+			<result name="toEdit">/manage/navigation/navigationEdit.jsp</result>
+			<result name="toAdd">/manage/navigation/navigationEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 会员等级 -->
+	<package name="accountRank" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="accountRank" class="accountRankActionManage">
+			<result name="toList">/manage/accountRank/accountRankList.jsp</result>
+			<result name="toEdit">/manage/accountRank/accountRankEdit.jsp</result>
+			<result name="toAdd">/manage/accountRank/accountRankEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 会员 -->
+	<package name="account" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="account" class="accountActionManage">
+			<result name="loginSuccess">/toIndex.jsp</result>
+			<result name="loginFaild">/login.jsp</result>
+			<result name="regeistSuccess" type="redirect">/regeist_success.jsp</result>
+			<result name="loginOut">/toIndex.jsp</result>
+			<result name="regFaild">/regeistFalid.jsp</result>
+			<result name="toList">/manage/account/accountList.jsp</result>
+			<result name="toEdit">/manage/account/accountEdit.jsp</result>
+			<result name="freeze">/manage/account/freeze.jsp</result>
+			<result name="show">/manage/account/show.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 分类管理 -->
+	<package name="catalog" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="catalog" class="catalogActionManage">
+			<result name="toList">/manage/catalog/catalogList.jsp</result>
+			<result name="selectAllList" type="redirect">catalog!selectList.action?e.type=${e.type}</result>
+			<result name="toAdd">/manage/catalog/catalogEdit.jsp</result>
+			<result name="toEdit">/manage/catalog/catalogEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 标签管理 
+	<package name="lable" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="lable" class="lableAction">
+			<result name="toAdd">/manage/lable/lableEdit.jsp</result>
+			<result name="toList">/manage/lable/lableList.jsp</result>
+			<result name="toEdit">/manage/lable/lableEdit.jsp</result>
+		</action>
+	</package>-->
+
+	<!-- 访问统计 
+	<package name="sessionCount" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="sessionCount" class="sessionCountAction">
+			<result name="toList">/manage/sessionCount/sessionCountList.jsp</result>
+			<result name="toAdd">/manage/sessionCount/sessionCountEdit.jsp</result>
+			<result name="toEdit">/manage/sessionCount/sessionCountEdit.jsp</result>
+		</action>
+	</package>-->
+
+	<!-- 商品信息 -->
+	<package name="product" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="product" class="productActionManage">
+			<result name="toList">/manage/product/productList.jsp</result>
+			<result name="toAdd">/manage/product/productEdit.jsp</result>
+			<result name="toEdit">/manage/product/productEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 订单 -->
+	<package name="order" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="order" class="orderActionManage">
+			<result name="toList">/manage/order/orderList.jsp</result>
+			<result name="toAdd">/manage/order/orderEdit.jsp</result>
+			<result name="toEdit">/manage/order/orderEdit.jsp</result>
+			<result name="toPrint">/manage/order/orderPrint.jsp</result>
+			<result name="toSendProduct">/manage/order/sendProduct.jsp</result>
+			<result name="selectOrdership">/manage/order/updateOrdership.jsp</result>
+		</action>
+	</package>
+	
+	<!-- notice公告
+	<package name="notice" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="notice" class="noticeAction">
+			<result name="toList">/manage/notice/noticeList.jsp</result>
+			<result name="toAdd">/manage/notice/noticeEdit.jsp</result>
+			<result name="toEdit">/manage/notice/noticeEdit.jsp</result>
+		</action>
+	</package>-->
+	
+	<!-- 系统日志管理-->
+	<package name="systemlog" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="systemlog" class="systemlogActionManage">
+			<result name="toList">/manage/systemlog/systemlogList.jsp</result>
+			<result name="toAdd">/manage/systemlog/systemlogEdit.jsp</result>
+			<result name="toEdit">/manage/systemlog/systemlogEdit.jsp</result>
+			<result name="systemlogListAndDetail">/manage/systemlog/systemlogListAndDetail.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 区域管理-->
+	<package name="area" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="area" class="areaActionManage">
+			<result name="toList">/manage/area/areaList.jsp</result>
+			<result name="toAdd">/manage/area/areaEdit.jsp</result>
+			<result name="toEdit">/manage/area/areaEdit.jsp</result>
+			<result name="areaTree">/manage/area/areaTree.jsp</result>
+			<result name="addOrUpdate">/manage/area/addOrUpdate.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 系统设置-->
+	<package name="systemSetting" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="systemSetting" class="systemSettingActionManage">
+			<result name="toEdit">/manage/systemSetting/systemSettingEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 评论 -->
+	<package name="comment" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="comment" class="commentActionManage">
+			<result name="toList">/manage/comment/commentList.jsp</result>
+			<result name="selectAllList" type="redirect">comment!selectList.action</result>
+			<result name="toAdd">/manage/comment/commentEdit.jsp</result>
+			<result name="toEdit">/manage/comment/commentEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 键值对 -->
+	<package name="keyvalue" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="keyvalue" class="keyvalueActionManage">
+			<result name="toList">/manage/keyvalue/keyvalueList.jsp</result>
+			<result name="selectAllList" type="redirect">keyvalue!selectList.action</result>
+			<result name="toAdd">/manage/keyvalue/keyvalueEdit.jsp</result>
+			<result name="toEdit">/manage/keyvalue/keyvalueEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 产品属性 -->
+	<package name="attribute" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="attribute" class="attributeActionManage">
+			<result name="toList">/manage/attribute/attributeList.jsp</result>
+			<result name="toAdd">/manage/attribute/attributeEdit.jsp</result>
+			<result name="toEdit">/manage/attribute/attributeEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 广告管理 -->
+	<package name="advert" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="advert" class="advertActionManage">
+			<result name="toList">/manage/advert/advertList.jsp</result>
+			<result name="toAdd">/manage/advert/advertEdit.jsp</result>
+			<result name="toEdit">/manage/advert/advertEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 问卷管理 -->
+	<package name="questionnaire" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="questionnaire" class="questionnaireActionManage">
+			<result name="toList">/manage/questionnaire/questionnaireList.jsp</result>
+			<result name="toAdd">/manage/questionnaire/questionnaireEdit.jsp</result>
+			<result name="toEdit">/manage/questionnaire/questionnaireEdit.jsp</result>
+<!-- 			<result name="addQuestionItemPage">/manage/questionnaire/questionnaireItemEdit.jsp</result> -->
+		</action>
+	</package>
+	
+	<!-- 支付方式管理 -->
+	<package name="pay" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="pay" class="payActionManage">
+			<result name="toList">/manage/pay/payList.jsp</result>
+			<result name="toAdd">/manage/pay/payEdit.jsp</result>
+			<result name="toEdit">/manage/pay/payEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 存储方式管理 -->
+	<package name="oss" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="oss" class="ossActionManage">
+			<result name="toList">/manage/oss/ossList.jsp</result>
+			<result name="toAdd">/manage/oss/ossEdit.jsp</result>
+			<result name="toEdit">/manage/oss/ossEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 评论方式管理 -->
+	<package name="commentType" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="commentType" class="commentTypeActionManage">
+			<result name="toList">/manage/commentType/commentTypeList.jsp</result>
+			<result name="toAdd">/manage/commentType/commentTypeEdit.jsp</result>
+			<result name="toEdit">/manage/commentType/commentTypeEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 评论方式管理 -->
+	<package name="report" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="report" class="reportActionManage">
+			<result name="orderSales">/manage/report/orderSales.jsp</result>
+			<result name="productSales">/manage/report/productSales.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 物流管理 -->
+	<package name="express" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="express" class="expressActionManage">
+			<result name="toList">/manage/express/expressList.jsp</result>
+			<result name="toAdd">/manage/express/expressEdit.jsp</result>
+			<result name="toEdit">/manage/express/expressEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- SMS短信管理 -->
+	<package name="sms" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="sms" class="smsActionManage">
+			<result name="toList">/manage/sms/smsList.jsp</result>
+<!-- 			<result name="toAdd">/manage/sms/smsEdit.jsp</result> -->
+<!-- 			<result name="toEdit">/manage/sms/smsEdit.jsp</result> -->
+		</action>
+	</package>
+	
+	<!-- 商品到货通知 -->
+	<package name="emailNotifyProduct" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="emailNotifyProduct" class="emailNotifyProductActionManage">
+			<result name="toList">/manage/emailNotifyProduct/emailNotifyProductList.jsp</result>
+			<result name="toAdd">/manage/emailNotifyProduct/emailNotifyProductEdit.jsp</result>
+			<result name="toEdit">/manage/emailNotifyProduct/emailNotifyProductEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 通知模板 -->
+	<package name="notifyTemplate" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="notifyTemplate" class="notifyTemplateActionManage">
+			<result name="toList">/manage/notifyTemplate/notifyTemplateList.jsp</result>
+<!-- 			<result name="toAdd">/manage/notifyTemplate/notifyTemplateEdit.jsp</result> -->
+			<result name="toEdit">/manage/notifyTemplate/notifyTemplateEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 邮件管理 -->
+	<package name="email" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="email" class="emailActionManage">
+			<result name="toList">/manage/email/emailList.jsp</result>
+			<result name="toAdd">/manage/email/emailEdit.jsp</result>
+			<result name="toEdit">/manage/email/emailEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 任务管理 -->
+	<package name="task" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="task" class="taskActionManage">
+			<result name="toList">/manage/task/taskList.jsp</result>
+<!-- 			<result name="toAdd">/manage/task/taskEdit.jsp</result> -->
+<!-- 			<result name="toEdit">/manage/task/taskEdit.jsp</result> -->
+		</action>
+	</package>
+	
+	<!-- 活动促销管理 -->
+	<package name="activity" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="activity" class="activityActionManage">
+			<result name="toList">/manage/activity/activityList.jsp</result>
+			<result name="toAdd">/manage/activity/activityEdit.jsp</result>
+			<result name="toEdit">/manage/activity/activityEdit.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 商品赠品管理 -->
+	<package name="gift" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="gift" class="giftActionManage">
+			<result name="toList">/manage/gift/giftList.jsp</result>
+			<result name="toAdd">/manage/gift/giftEdit.jsp</result>
+			<result name="toEdit">/manage/gift/giftEdit.jsp</result>
+			<result name="show">/manage/gift/show.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 热门查询管理 -->
+	<package name="hotquery" namespace="/manage" extends="struts-jeeshop-manage">
+		<action name="hotquery" class="hotqueryActionManage">
+			<result name="toList">/manage/hotquery/hotqueryList.jsp</result>
+			<result name="toAdd">/manage/hotquery/hotqueryEdit.jsp</result>
+			<result name="toEdit">/manage/hotquery/hotqueryEdit.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+</struts>

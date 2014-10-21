@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.1//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.1.dtd">
+<urlrewrite>
+	<rule> <from>/activity/([a-zA-Z]+).html</from> <to last="true">/activity/$1.jsp</to> </rule>
+	<!-- 产品详细信息 -->
+	<rule>
+		<from>/product/([0-9]+).html</from>
+		<to last="true">/product/productA.action?id=$1</to>
+	</rule>
+	
+	<!--请求prouct中的方法，注意：要和请求商品明细区别开来-->
+	<rule>
+		<from>/product/([a-zA-Z]+).html</from>
+		<to last="true">/product/$1.action</to>
+	</rule>
+	
+	<!-- 购物车操作 -->
+	<rule>
+		<from>/cart/([a-zA-Z0-9]+).html</from>
+		<to last="true">/cart123/$1.action</to>
+	</rule>
+	
+	<!-- 问卷调查 -->
+	<rule>
+		<from>/question/([0-9a-zA-Z]+).html</from>
+		<to last="true">/questionnaire/$1.action</to>
+	</rule>
+	
+	<!-- 会员中心 -->
+	<rule>
+		<from>/user/([a-zA-Z0-9]+).html(.*)</from>
+		<to last="true">/account/$1.action</to>
+	</rule>
+	
+	<!-- 订单管理 -->
+	<rule>
+		<from>/order/([a-zA-Z0-9]+).html</from>
+		<to last="true">/orders/$1.action</to>
+	</rule>
+	
+	<!-- 根据商品关键字，搜索商品 -->
+	<rule>
+		<from>/search.html</from>
+<!-- 		<from>/search.html?q=^([a-zA-Z0-9]+)$</from> -->
+		<to last="true">/product/search.action</to>
+	</rule>
+	
+	<!-- 根据目录ID加载产品列表信息 -->
+	<rule>
+		<from>/catalog/([0-9a-zA-Z]+).html</from>
+		<to last="true">/product/productList.action?catalogCode=$1</to>
+	</rule>
+	
+	<!-- 加载热门、特价、最新的商品列表信息 -->
+	<rule>
+		<from>/special/([a-z]+).html</from>
+		<to last="true">/product/specialProductList.action?special=$1</to>
+	</rule>
+	
+	<!-- 加载促销活动的商品列表
+	<rule>
+		<from>/activity.html</from>
+		<to last="true">/product!activityProductList.action</to>
+	</rule> -->
+	
+	<!-- 根据产品属性ID加载产品列表信息 -->
+	<rule>
+		<from>/catalog/attr/([0-9]+).html</from>
+		<to last="true">/product/productListByAttrID.action?attributeID=$1</to>
+	</rule>
+	
+	<!-- 新闻列表 -->
+	<rule>
+		<from>/news/list.html</from>
+		<to last="true">/product/newsList.action</to>
+	</rule>
+	
+	<!-- 根据新闻ID获取指定新闻明细内容 -->
+	<rule>
+		<from>/news/([0-9]+).html</from>
+		<to last="true">/news/newsInfo.action?id=$1</to>
+	</rule>
+	
+	<!-- 转到帮助中心 -->
+	<rule>
+		<from>/help/([0-9a-zA-Z]+).html</from>
+		<to last="true">/news/help.action?helpCode=$1</to>
+	</rule>
+	
+	<!-- 此优先级是最低的,直接转发 -->
+	<rule> <from>/([a-zA-Z]+).html</from> <to last="true">$1.jsp</to> </rule>
+	
+</urlrewrite>

@@ -1,0 +1,230 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!-- tyy -->
+<!DOCTYPE html>
+<html>
+<head>
+<%@ include file="/resource/common_html_meat.jsp"%>
+<%@ include file="/manage/system/common.jsp"%>
+<%@ include file="/resource/common_html_validator.jsp"%>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resource/jquery-jquery-ui/themes/base/jquery.ui.all.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resource/kindeditor-4.1.7/themes/default/default.css" />
+</head>
+
+<body style="padding: 5px;">
+<s:form action="questionnaire" namespace="/manage" theme="simple" id="form">
+
+<div style="text-align: center;border-bottom: 1px solid #ccc;padding: 5px;">
+	<s:if test="e.id=='' or e.id==null">
+		<s:submit method="insert" onclick="return onSubmit();"
+				value="新增问卷" class="btn btn-primary"/>
+	</s:if> 
+	<s:else>
+		<s:submit method="update" onclick="return onSubmit();"
+			value="保存问卷" class="btn btn-primary"/>
+	</s:else>
+	<s:submit
+		method="back" value="返回" class="btn btn-inverse"/>
+</div>
+
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">问卷信息</a></li>
+		<li><a href="#tabs-2">题目列表</a></li>
+	</ul>
+	<div id="tabs-1">
+		<table class="table table-condensed">
+			<tr style="display: none;">
+				<td>id</td>
+				<td><s:hidden name="e.id" label="id" id="id"/></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">问卷名称</td>
+				<td style="text-align: left;"><s:textfield name="e.title" 
+						id="nickname" /></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">副标题</td>   
+				<td style="text-align: left;"><s:textfield name="e.title2" 
+						id="questionnaire"></s:textfield></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">是否启用</td>
+				<td style="text-align: left;">
+					<s:select list="#{'n':'否','y':'是'}" id="status" name="e.status" 
+					listKey="key" listValue="value"  /></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">显示的开始/结束日期</td>
+				<td style="text-align: left;">
+					<input id="d4311" class="Wdate search-query input-small" type="text" name="e.showStartDate"
+						value="<s:property value="e.showStartDate" />"
+						onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+						~ 
+						<input id="d4312" class="Wdate search-query input-small" type="text" name="e.showEndDate" 
+						value="<s:property value="e.showEndDate" />"
+						onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})"/>		
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="tabs-2">
+		<table class="table">
+			<s:iterator value="pager.list">
+				<tr>
+					<td><input type="checkbox" name="ids"
+						value="<s:property value="id"/>" /></td>
+					<td>&nbsp;<s:property value="id" /></td>
+					<td>&nbsp;
+						<s:a href="questionnaire!toEdit.action?e.id=%{id}" >
+						<s:property value="title" /></s:a>
+					</td>
+					<td>&nbsp;<s:property value="createdate" /></td>
+					<td>&nbsp;<s:property value="createquestionnaire" /></td>
+					<td>&nbsp;<s:property value="updatedate" /></td>
+					<td>&nbsp;<s:property value="updatequestionnaire" /></td>
+					<td>&nbsp;
+						<s:if test="status.equals(\"y\")">
+							<img alt="启用" src="<%=request.getContextPath() %>/resource/images/action_check.gif">
+						</s:if>
+						<s:else>
+							<img alt="禁用" src="<%=request.getContextPath() %>/resource/images/action_delete.gif">
+						</s:else>
+					</td>
+					<td>&nbsp;<s:property value="lastLoginIp" />
+						<s:property value="showStartDate" />~<s:property value="showEndDate" />
+					</td>
+						</tr>
+			</s:iterator>
+			<%for(int i=0;i<10;i++){ %>
+			<tr>
+				<td style="text-align: right;"></td>
+				<td style="text-align: left;">
+					
+					<div style="float: left;">题目<%=(i+1) %>:</div>
+					<div style="float: left;">
+						<s:textfield name="e.subjectArr" id="subjectArr" />
+						<select name="type">
+							<option value="radio">单选</option>
+							<option value="checkbox">多选</option>
+							<option value="text">文本</option>
+						</select>
+						<br>
+						<input name="e.optionArr_<%=(i+1) %>" id="option" /><br>
+						<s:textfield name="e.option" id="option" /><br>
+						<s:textfield name="e.option" id="option" /><br>
+						<s:textfield name="e.option" id="option" />
+						<input type="button" value="添加选项" class="btn">
+						<br>
+					</div>
+				</td>
+			</tr>
+			<%} %>
+		</table>
+	</div>
+</div>
+</s:form>
+
+<script src="<%=request.getContextPath() %>/resource/jquery-jquery-ui/jquery-1.5.1.js"></script>
+<script src="<%=request.getContextPath() %>/resource/jquery-jquery-ui/ui/jquery.ui.core.js"></script>
+<script src="<%=request.getContextPath() %>/resource/jquery-jquery-ui/ui/jquery.ui.widget.js"></script>
+<script src="<%=request.getContextPath() %>/resource/jquery-jquery-ui/ui/jquery.ui.tabs.js"></script>
+
+<script charset="utf-8" src="<%=request.getContextPath() %>/resource/kindeditor-4.1.7/kindeditor-min.js"></script>
+<script charset="utf-8" src="<%=request.getContextPath() %>/resource/kindeditor-4.1.7/lang/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="e.productHTML"]', {
+			allowFileManager : true
+		});
+		K('input[name=getHtml]').click(function(e) {
+			alert(editor.html());
+		});
+		K('input[name=isEmpty]').click(function(e) {
+			alert(editor.isEmpty());
+		});
+		K('input[name=getText]').click(function(e) {
+			alert(editor.text());
+		});
+		K('input[name=selectedHtml]').click(function(e) {
+			alert(editor.selectedHtml());
+		});
+		K('input[name=setHtml]').click(function(e) {
+			editor.html('<h3>Hello KindEditor</h3>');
+		});
+		K('input[name=setText]').click(function(e) {
+			editor.text('<h3>Hello KindEditor</h3>');
+		});
+		K('input[name=insertHtml]').click(function(e) {
+			editor.insertHtml('<strong>插入HTML</strong>');
+		});
+		K('input[name=appendHtml]').click(function(e) {
+			editor.appendHtml('<strong>添加HTML</strong>');
+		});
+		K('input[name=clear]').click(function(e) {
+			editor.html('');
+		});
+	});
+</script>
+		
+<script type="text/javascript">
+$(function() {
+	$( "#tabs" ).tabs({
+		//event: "mouseover"
+	});
+	
+	$("#title").focus();
+	
+	$("#superTypeID").change(function(){
+		$("#smallTypeID").find("option").remove();
+		$("#smallTypeID").append("<option value='0'>--请选择--</option>");
+		var _url = "productType!getSmallTypeListJson.action?superTypeID="+$(this).val();
+		$.ajax({
+		  type: 'POST',
+		  url: _url,
+		  data: {},
+		  success: function(data){
+			  $.each(data,function(i,row){
+				  $("#smallTypeID").append("<option value='"+row.id+"'>"+row.name+"</option>");
+			  });
+		  },
+		  dataType: "json",
+		  error:function(){
+			alert("加载小类别失败，请联系管理员。");				  
+		  }
+		});
+	});
+	
+	$("#smallTypeID").change(function(){
+		$("#productTypeID").find("option").remove();
+		$("#productTypeID").append("<option value='0'>--请选择--</option>");
+		var _url = "goods!getProductTypeListJson.action?smallTypeID="+$(this).val();
+		$.ajax({
+		  type: 'POST',
+		  url: _url,
+		  data: {},
+		  success: function(data){
+			  $.each(data,function(i,row){
+				  $("#productTypeID").append("<option value='"+row.id+"'>"+row.name+"</option>");
+			  });
+		  },
+		  dataType: "json",
+		  error:function(){
+			alert("加载小类别失败，请联系管理员。");				  
+		  }
+		});
+	});
+});
+
+function onSubmit() {
+	/*if ($.trim($("#name").val()) == "") {
+		alert("名称不能为空!");
+		$("#title").focus();
+		return false;
+	}*/
+}
+</script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resource/My97DatePicker/WdatePicker.js"></script>
+</body>
+</html>

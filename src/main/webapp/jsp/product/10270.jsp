@@ -1,0 +1,2 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140304/1393921204764_3.jpg" alt="" /><img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140304/1393921209108_3.jpg" alt="" /><img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140304/1393921211905_3.jpg" alt="" /><img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140304/1393921214405_3.jpg" alt="" /><img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140304/1393921216921_3.jpg" alt="" />

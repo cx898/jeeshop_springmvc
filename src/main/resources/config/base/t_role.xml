@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="role">
+	<select id="role.selectList" parameterType="net.jeeshop.core.system.bean.Role" resultType="hashMap">
+		select t.* from t_role t
+	</select>
+	<select id="role.selectPageList" parameterType="net.jeeshop.core.system.bean.Role" resultType="hashMap">
+		select t.* from t_role t where 1=1 limit #{offset},#{pageSize}
+	</select>
+	<select id="role.selectPageCount" parameterType="net.jeeshop.core.system.bean.Role" resultType="java.lang.Integer">
+		select count(*) from (select t.* from t_role t where 1=1 ) a
+	</select>
+	<select id="role.selectOne" parameterType="net.jeeshop.core.system.bean.Role" resultType="net.jeeshop.core.system.bean.Role">
+		select t.* from t_role t 
+		where 1=1 
+		<if test="id!=null and id!=''">
+			and id=#{id}
+		</if>
+		<if test="role_name!=null and role_name!=''">
+			and role_name=#{role_name}
+		</if>
+		<if test="role_desc!=null and role_desc!=''">
+			and role_desc=#{role_desc}
+		</if>
+	</select>
+	<insert id="role.insert" parameterType="net.jeeshop.core.system.bean.Role" useGeneratedKeys="true" keyProperty="id">
+		insert into t_role (id,role_name,role_desc,role_dbPrivilege,status) values (id,#{role_name},#{role_desc},#{role_dbPrivilege},#{status})
+	</insert>
+	<update id="role.update" parameterType="net.jeeshop.core.system.bean.Role">
+		update t_role set id=#{id}
+		<if test="role_name!=null and role_name!=''">
+			,role_name=#{role_name}
+		</if>
+		<if test="role_desc!=null and role_desc!=''">
+			,role_desc=#{role_desc}
+		</if> 
+		<if test="role_dbPrivilege!=null and role_dbPrivilege!=''">
+			,role_dbPrivilege=#{role_dbPrivilege}
+		</if>
+		<if test="status!=null and status!=''">
+			,status=#{status}
+		</if>
+		where id=#{id}
+	</update>
+<!-- 	<delete id="role.delete" parameterType="net.jeeshop.core.system.bean.Role"> -->
+<!-- 		delete from t_role where id=#{id} -->
+<!-- 	</delete> -->
+</mapper>  

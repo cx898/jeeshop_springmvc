@@ -1,0 +1,50 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{ margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+.menu{ width:238px;position:fixed!important;_position:absolute;overflow:visible;display:block;z-index:10000;border-bottom:1px solid #ccc;font-family: 'Microsoft YaHei,宋体';_position:absolute;_left:expression(eval(document.documentElement.scrollLeft));_top:expression(eval(document.documentElement.scrollTop));zoom:1; -left:243px; top:93px; box-shadow:4px 2px 5px rgba(0, 0, 0, 0.2);}
+.menu .title{ position:relative;font-weight:bold;font-family:Microsoft YaHei;font-size:13px;color:#fff;background-color:#a21c1d;height:30px;line-height:30px;padding-left:15px;padding-right:8px}
+body,html{ background:#000; }
+.top{ width:100%; height:93px; background:#B20000;}
+.main{ width:930px; background:#FFF; height:2600px;margin:0 0 0 238px; padding-left:10px; }
+.menu .items{ width:238px;overflow:hidden; position:relative; z-index:6;}
+.top .middle{ width:1168px; height:100%; margin:0 auto;}
+.top .middle .logo{ padding-top:50px;}
+.wrap{ width:1178px; margin:0 auto; position:relative;}
+.menu .items ul{ list-style:none}
+a img{ border:none;}
+.menu .items ul li{ display:block;position:relative;padding-left:10px;background:#fff;line-height:30px;cursor:pointer; float:left; width:100%;}
+.menu .items h3{ padding-left:30px;font-weight:bold;font-family:Microsoft YaHei;font-size:12px}
+.menu .items ul li.alt{ background:#f1f1f1}
+.menu .items ul li.curr{ background:#6c5143;color:#fff;cursor:pointer;border-top:1px solid #6c5143;border-bottom:1px solid #6c5143}
+.menu .items ul li p{ line-height:20px;font-size:12px;display:block}
+.menu .items ul li p a{ color:#888;text-decoration:none;padding:0 2px;line-height:25px;height:25px;font-family: 'Microsoft YaHei,宋体';}
+.menu .items ul li:hover  { background:#88766E; color:#FFF}
+.menu .items ul li:hover a {color:#FFF}
+.menu .items ul li p a:hover{ text-decoration:underline;font-family: 'Microsoft YaHei,宋体';}
+.menu .items ul li.curr p a{ color:#fff}
+.menu .box{ background:repeat-y url('../images/bg_line_t.jpg') #fff;position:absolute;overflow:visible;min-width:500px;min-height:500px;_width:755px;_height:500px;border-left:1px solid #dfdfdf;border-top:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc; display:none; left:241px; top:0px; z-index:4;}
+.menu .menuIcon{ position:absolute;display:block;width:5px;height:9px;top:40%;right:10px;background-position:-7px -480px;overflow:hidden}
+.menu.btn_group{ position:absolute;display:block;width:45px;height:21px;top:4px;right:10px;background-position:-0px -492px;overflow:hidden}
+.menu .btn_group.bleft{ background-position:-0px -492px}
+.menu .btn_group.bright{ background-position:-0px -518px;}
+.menu .btn_group .bleft{ margin:1px 0 1px 1px;float:left;display:block;height:19px;width:21px;cursor:pointer}
+.menu .btn_group .bright{ margin:1px 1px 1px 0;float:right;display:block;height:19px;width:21px;cursor:pointer}
+.menu .btn_group.bleft .bright{ cursor:default}
+.menu .btn_group.bright .bleft{ cursor:default}
+.menu .btn_group { background-position: 0 -492px;display: block;height: 21px;overflow: hidden;position: absolute;right: 10px;top: 4px;width: 45px;}
+.menu .box .hide{ width:755px; height:500px;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2), 1px -3px 5px rgba(0, 0, 0, 0.2);display:none;}
+.menu .items h3,.menu .menuIcon,.menu .btn_group{ background:url(../images/icon.png) no-repeat;}
+.menu .list-item0 h3{ background-position:0 0}
+.menu .list-item1 h3{ background-position:0 -30px}
+.menu .list-item2 h3{ background-position:0 -60px}
+.menu .list-item3 h3{ background-position:0 -90px}
+.menu .list-item4 h3{ background-position:0 -120px}
+.menu .list-item5 h3{ background-position:0 -150px}
+.menu .list-item6 h3{ background-position:0 -180px}
+.menu .list-item7 h3{ background-position:0 -210px}
+.menu .list-item8 h3{ background-position:0 -240px}
+.menu .list-item9 h3{ background-position:0 -270px}
+.menu .list-item10 h3{ background-position:0 -300px}
+.menu .list-item11 h3{ background-position:0 -330px}
+.menu .list-item12 h3{ background-position:0 -360px}
+.menu .list-item13 h3{ background-position:0 -390px}
+.menu .list-item14 h3{ background-position:0 -420px}
+.menu .list-item15 h3{ background-position:0 -450px}

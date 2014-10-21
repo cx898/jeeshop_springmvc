@@ -1,0 +1,34 @@
+{
+    "name": "jquery.validator",
+    "title": "nice Validator",
+    "description": "Simple, smart and pleasant verification solution.",
+    "version": "0.7.0",
+    "keywords": ["form", "validate", "validation", "validator"],
+    "homepage": "http://niceue.com/validator/",
+    "author": "Jony Zhang <zj86@live.cn>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/niceue/validator.git"
+    },
+    "bugs": "https://github.com/niceue/validator/issues",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://niceue.com/licenses/MIT-LICENSE.txt"
+        }
+    ],
+    "engine": [
+        "node >=0.10.0"
+    ],
+    "scripts": {
+        "test": "jshint src/jquery.validator.js"
+    },
+    "dependencies": {
+        "jquery": ">=1.7.0"
+    },
+    "devDependencies": {
+        "uglify-js": ">= 2.4.8",
+        "stylus": ">= 0.41.3",
+        "jshint": ">=2.3.0"
+    }
+}

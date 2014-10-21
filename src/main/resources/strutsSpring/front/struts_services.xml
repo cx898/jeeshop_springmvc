@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- 会员 -->
+	<package name="accountFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="account" class="accountActionFront">
+<!-- 			<interceptor-ref name="token"/> -->
+			<result name="toIndex" type="redirect">/</result>
+			<result name="toLogin">/user/login.jsp</result>
+			<result name="toLoginRedirect" type="redirect">/user/login.html</result>
+			<result name="register">/user/regeist.jsp</result>
+			<result name="changePwdSuccess">/user/changePwdSuccess.jsp</result>
+<!-- 			<result name="toCheckEmail" type="redirect">/user/checkEmail.html</result> -->
+<!-- 			<result name="toCheckEmail">/user/checkEmail.html</result> -->
+			<result name="checkEmail">/user/regsuccess.jsp</result>
+			<result name="regsuccess" type="redirect">/user/regsuccess.html</result>
+
+			<result name="help">/help.jsp</result>
+			
+			<result name="user">/user/user.jsp</result>
+			<result name="saveSetting" type="redirect">/user/setting.html</result>
+			<result name="safe">/user/safe.jsp</result>
+			<result name="score">/user/score.jsp</result>
+			<result name="msg">/user/msg.jsp</result>
+			<result name="topwd">/user/topwd.jsp</result>
+			<result name="orders">/user/orders.jsp</result>
+			<result name="letters">/user/letters.jsp</result>
+			<result name="address">/user/address.jsp</result>
+			
+			<result name="jcrop">/user/jcrop.jsp</result>  
+<!-- 		    <result name="error">/user/jcrop.jsp</result> -->
+		    <result name="showUploadImagePage" type="redirect">/user/jcrop.html</result>
+		    <result name="cutPic" type="redirect">/user/jcrop.html</result>
+		    
+		    <result name="forget">/user/forget.jsp</result>
+		    <result name="toWaitUserCheck" type="redirect">/user/waitUserCheck.html</result>
+		    <result name="waitUserCheck">/user/waitUserCheck.jsp</result>
+		    <result name="reset">/user/reset.jsp</result>
+		    <result name="resetSuccess">/user/resetSuccess.jsp</result>
+		    
+		    
+		    <result name="forget_redirect" type="redirect">/forget.jsp</result>
+		    <result name="foget_sendEmail_success">/forget.jsp</result>
+		    <result name="forgetCallbackSuccess" type="redirect">/forgetCallbackSuccess.html</result>
+		    <result name="alipayFastLogin">/user/alipayapi_fastLogin.jsp</result>
+		    <result name="cart">/cart.jsp</result>
+		    
+		    <result name="toChangeEmail">/user/changeEmail.jsp</result>
+		    <result name="changeEamilWait" type="redirect">/user/changeEamilWait.html</result>
+		    <result name="toChangeEamilWait">/user/changeEamilWait.jsp</result>
+		    <result name="active">/user/active.jsp</result>
+		    <result name="activeAccount">/user/reg_success_active_result.jsp</result>
+
+		    <result name="favorite">/user/favorite.jsp</result>
+		    
+		</action>
+	</package>
+	
+	<!-- 购物车 -->
+	<package name="cartFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="cart" class="cartActionFront">
+			<result name="cart">/cart.jsp</result>
+			<result name="toLogin">/user/login.jsp</result>
+<!-- 			<result name="confirmOrder">/confirmOrder.jsp</result> -->
+		</action>
+	</package>
+	
+	<!-- 产品 -->
+	<package name="productFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="product" class="productActionFront">
+			<result name="toLogin" type="redirect">login.jsp</result>
+			<result name="productList">productList.jsp</result>
+			<result name="specialProductList">specialProductList.jsp</result>
+			<result name="product">product.jsp</result>
+			<result name="cart">cart.jsp</result>
+			<result name="list">productList.jsp</result>
+			<result name="confirmOrder">confirmOrder.jsp</result>
+			
+			<result name="newsList">newsList.jsp</result>
+			<result name="newsInfo">newsInfo.jsp</result>
+			<result name="help">help.jsp</result>
+			<result name="selectMemoryStock">/test/selectMemoryStock.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 订单 -->
+	<package name="ordersFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="orders" class="ordersActionFront">
+<!-- 			<result name="toLogin" type="redirect">login.jsp</result> -->
+			<result name="toLogin">/user/login.jsp</result>
+			<result name="toPay">alipayapi.jsp</result>
+			<result name="rate">rate.jsp</result>
+			<result name="pay_success">pay_success.jsp</result>
+<!-- 			<result name="toPay" type="redirect">pay.jsp</result> -->
+			<result name="doPay" type="redirect">doPay.jsp</result>
+			<result name="myOrders">/user/myOrders.jsp</result>
+			<result name="orderInfo">/user/orderInfo.jsp</result>
+			<result name="orderhipInfo">/user/orderhipInfo.jsp</result>
+			<result name="confirmOrder">/confirmOrder.jsp</result>
+			<result name="paySuccess">/paySuccess.jsp</result>
+			<result name="thinksRate">/thinksRate.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 模板 -->
+<!-- 	<package name="freemarkerFront" namespace="/" extends="struts-jeeshop-front"> -->
+<!-- 		<action name="freemarker" class="freemarkerActionFront"> -->
+<!-- 			<result name="success" type="redirect">/manage/freemarker/freemarkerList.jsp</result> -->
+<!-- 		</action> -->
+<!-- 	</package> -->
+	
+	<!-- 问卷管理 -->
+	<package name="questionnaireFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="questionnaire" class="questionnaireActionFront">
+			<result name="show">/questionnaire.jsp</result>
+			<result name="success" type="redirect">/questionnaireSuccess.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 文章管理 -->
+	<package name="newsFront" namespace="/" extends="struts-jeeshop-front">
+		<action name="news" class="newsActionFront">
+			<result name="newsInfo">/newsInfo.jsp</result>
+			<result name="help">/help.jsp</result>
+		</action>
+	</package>
+
+</struts>

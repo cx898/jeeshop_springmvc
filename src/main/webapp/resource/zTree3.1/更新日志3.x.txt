@@ -1,0 +1,68 @@
+=ZTree v3.x (JQuery Tree插件) 更新日志=
+
+<font color="red">为了更好的优化及扩展zTree, 因此决定升级为v3.x，并且对之前的v2.x不兼容，会有很多结构上的修改，对此深感无奈与抱歉，请大家谅解。</font>
+<font color="red">
+* 具体修改内容可参考 [http://www.baby666.cn/v3/api.php zTree v3.1 API 文档]
+* [http://www.baby666.cn/v3/demo.php#_101 zTree v3.0 Demo 演示]
+* [http://www.baby666.cn/v3/faq.php#_101 zTree v3.0 常见问题]
+</font>
+
+<font color=#041594>
+*2012.02.14* v3.1
+   * 【增加】ajax 的参数 setting.async.contentType ，让提交参数适用于 json 数据提交 （主要适用于 .Net 的开发）。
+   * 【增加】setting.edit.editNameSelectAll, 用于设定编辑节点名称时初次显示 input 后 text 内容为全选
+   * 【修改】异步加载 规则，不再仅仅依靠父节点的子节点数来判定，增加内部属性 zAsync，保证默认状态下父节点及时无子节点也只能异步加载一次，除非使用 reAsyncChildNodes 方法强行控制异步加载。
+   * 【修改】放大浏览器后导致 界面出现多余连接线的bug （需要更新：icon 图标和 css ）
+   * 【修改】在编辑状态，如果节点名超过编辑框宽度，左右键在框内不起作用的bug（IE 6 7 8 出现）
+      CSS 中 filter:alpha(opacity=80) 造成的，应该是 ie 的 bug，需要更新 css 文件
+   * 【修改】title 设置后，如果属性不存在，则默认为 title 为空，便于数据容错和用户灵活使用
+   * 【修改】editName 方法如果针对尚未展开的 父节点，会导致该父节点自动展开的 bug
+   * 【修改】title 中存在标签时导致 title 显示异常的bug（例如：蓝色字22%"'<input/>）
+
+*2012.01.10* v3.0
+   * 【增加】setting.check.autoCheckTrigger 默认值 false，可以设置联动选中时是否触发事件回调函数
+   * 【增加】setting.callback.beforeEditName 回调函数，以保证用户可以捕获点击编辑按钮的事件
+   * 【增加】treeNode.chkDisabled 属性，显示 checkbox 但是用户无法修改 checkbox 状态，并且该 checkbox 会影响父节点的 checkbox 的半选状态
+   * 【增加】setting.check.nocheckInherit 属性，用户设置子节点继承 nocheck 属性，用于批量初始化节点，不适用于已经显示的节点
+   * 【增加】setting.edit.drag.autoExpandTrigger 默认值 false，可以设置自动展开、折叠操作时是否触发事件回调函数
+   * 【增加】setting.view.nameIsHTML 默认值 false，允许用户对 name 设置 DOM 对象
+   * 【增加】treeNode.click 属性的说明文档
+   * 【增加】treeObj.setChkDisabled 方法用于设置 checkbox / radio disabled 状态
+   * 【增加】treeNode.halfCheck 属性，用于强制设定节点的半选状态
+
+   * 【修改】异步加载 & 编辑功能 共存时，拖拽节点 或 增加节点 导致 ie 上报错的 bug （apply 方法引起）
+   * 【修改】zTreeStyle 样式冲突
+   * 【修改】setting.data.key.title 默认值设置为 ""，初始化时自动赋值为 setting.data.key.name 这样可避免希望 title 与 name 一致的用户反复设置参数
+   * 【修改】点击叶子节点的连接线会触发 expand 事件的 bug
+   * 【修改】IE 下 点击叶子节点连线会出现虚线框的 bug
+   * 【修改】updateNode 导致 checkbox 半选状态错误的 bug
+   * 【修改】checkNode 方法实现 toggle 操作, 取消 expandAll 方法的 toggle 操作
+   * 【修改】zTree 内鼠标移动会抢页面上 input 内的焦点的 bug
+   * 【修改】beforeRename / onRename 的触发方式——即使名称内容未改变也会触发，便于用户配合 beforeEditName 捕获编辑状态的结束，赋予用户更多调整规则的权利
+   * 【修改】与 easyUI 共存时无法拖拽的bug
+   * 【修改】beforeRename 在 Firefox 下如果利用 alert，会触发两次的 bug
+   * 【修改】checkNode/expandNode/removeNode 方法，默认不触发回调函数，恢复 v2.6 的默认状态，同时增加 callbackFlag 参数，设置为 true 时，可以触发回调函数
+   * 【修改】IE9下“根据参数查找节点”的Demo 报错：行14 重新声明常量属性(Demo 自身的问题，定义了history变量)
+   * 【修改】初始化 zTree 时 onNodeCreated 事件回调函数中无法 用 getZTreeObj 获取 zTree 对象的 bug
+   * 【修改】setting.edit.drag.prev / next / inner 参数，增加被拖拽的节点集合
+   * 【修改】异步加载模式下，otherParam 使用Array数组会出错的 bug。例如： ["id", "1", "name", "test"]
+   * 【修改】FireFox 下多棵树拖拽异常的 bug
+   * 【修改】exedit 中调用 excheck库的方法时没有进行容错处理，导致如果只加入 exedit 而没有 excheck的时候，会出现 js 错误
+   * 【修改】显示 checkbox 的 zTree 在编辑模式下，移动节点不会更新父节点半选状态的 bug
+   * 【修改】treeNode.childs --> children; treeObject.removeChilds --> removeChildNodes; setting.data.key.childs --> children（英文不好惹的祸！抱歉了！）
+   * 【修改】onRemove 回调中得到的 treeNode 还可以查找 preNode、nextNode 的bug。 修正后，getPreNode 和 getNextNode 都返回 null； 为了便于查找父节点，getParentNode 仍保留
+   * 【修改】简单数据模式下，如果 id 与 pId 的值相同会导致该节点无法正常加载的 bug
+   * 【修改】移动或删除中间节点会导致最后一个节点连接线图标变小的 bug
+
+*2011.09.05* v3.0 beta
+   * 【修改】zTree 的 js 代码架构全面修改，并且拆分
+   * 【修改】zTree 的 css 样式全面修改，对浏览器可以更好地兼容，同时解决了以前1个像素差的问题
+   * 【优化】采用延迟加载技术，一次性加载大数据量的节点性能飞速提升
+   * 【增加】支持多节点同时选中、拖拽
+   * 【增加】checkNode、checkAllNodes 等多种方法
+   * 【增加】IE6 自动取消动画展开、折叠的功能
+   * 【修正】异步加载 & 编辑模式 能够更完美的共存
+   * 【修正】setting 配置更加合理，并且增加了若干项配置参数
+   * 【修正】treeNode 节点数据的属性更加合理，并且增加了一些方法
+   * 【修正】拖拽操作更加灵活方便，更容易制定自己的规则
+   * 【修正】其他若干修改，详细对比请参考 url：[http://www.baby666.cn/v3/faq.php#_101 zTree v3.0 常见问题]

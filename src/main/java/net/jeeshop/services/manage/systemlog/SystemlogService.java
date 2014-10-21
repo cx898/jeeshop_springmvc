@@ -1,0 +1,1 @@
+package net.jeeshop.services.manage.systemlog;import net.jeeshop.core.Services;import net.jeeshop.services.manage.systemlog.bean.Systemlog;public interface SystemlogService extends Services<Systemlog> {		/**	 * 根据账号查询最新的一次登陆记录	 * @return	 */	Systemlog selectFirstOne(String account);}

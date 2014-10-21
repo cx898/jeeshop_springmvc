@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="manage.indexImg">
+	<select id="manage.indexImg.selectPageList" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg" resultType="hashMap">
+		SELECT * 
+		FROM t_index_img t
+		where 1=1
+		  order by order1  
+		limit #{offset},#{pageSize}
+	</select>
+	<select id="manage.indexImg.selectPageCount" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg" resultType="java.lang.Integer">
+		select count(*) from (
+		SELECT * 
+		FROM t_index_img t
+		where 1=1
+		) a
+	</select>
+	
+	<select id="manage.indexImg.selectOne" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg" resultType="net.jeeshop.services.manage.indexImg.bean.IndexImg">
+		SELECT * 
+		FROM t_index_img t
+		<where>
+			1=1
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="manage.indexImg.insert" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg" useGeneratedKeys="true" 
+		keyProperty="id">
+		insert into t_index_img (id,title,picture,order1,desc1,link)
+		 values (id,#{title},#{picture},#{order1},#{desc1},#{link})
+	</insert>
+	
+	<update id="manage.indexImg.update" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg">
+		update t_index_img set id=#{id},title=#{title},order1=#{order1},desc1=#{desc1},link=#{link}
+		<if test="picture!=null and picture!=''">,picture=#{picture}</if>
+		where id=#{id}
+	</update>
+	
+	<delete id="manage.indexImg.delete" parameterType="net.jeeshop.services.manage.indexImg.bean.IndexImg">
+		delete from t_index_img where id=#{id}
+	</delete>
+	
+	<delete id="manage.indexImg.deleteById" parameterType="int">
+		delete from t_index_img
+		where id=#{id}
+	</delete>
+	
+	<select id="manage.indexImg.getImgsShowToIndex" parameterType="int" resultType="net.jeeshop.services.manage.indexImg.bean.IndexImg">
+		SELECT * 
+		FROM t_index_img t order by order1
+	</select>
+</mapper>  

@@ -1,0 +1,38 @@
+*{margin:0;padding:0;}
+#sidebar{background: #FAFAFA;height:auto;width:100%;border:2px solid #e33a3d;padding:0px;margin-top:0px;margin-left:0px;border-top: 0px;}
+#sidebar h3{text-align:left;margin-top: 0px;margin-bottom: 0px;padding-left: 40px;}
+#sidebar .sidelist{position:relative;z-index:1;height:32px;width:100%;background: url(../../../images/222.png) 0px 0px  no-repeat;
+/* border-top: 1px solid #eee; */
+/* border-bottom: 1px solid #eee; */
+}
+#sidebar .sidelist span h3{;position:relative;z-index:20;height:32px;line-height:32px;font-size:14px;font-weight:normal;
+vertical-align: middle;
+/* background: url(http://www.lingshi.com/templates/default/images/menu.png) 63px -2px no-repeat;margin: 10px; */
+/* background: url(../../../images/222.png) 0px 0px  no-repeat; */
+
+}
+#sidebar .sidelist span h3 a{font-size:14px;text-decoration:none;display:block;width:auto;height:auto;color:#000;
+}
+#sidebar .sidelist span h3 a:hover{color:red;font-weight:bold;}
+#sidebar .i-list{display:none;position:absolute;z-index:1;left:259px;top:0px;text-align:left;
+/*width:180px;height:150px;*/
+/* width:100%; */
+width:250px;
+padding:15px;background: #FAFAFA;border:1px solid #c30;
+/*border-left:0px;*/
+}
+#sidebar .i-list ul li{width:60px;float:left;list-style:none;line-height:32px;heignt:32px;}
+#sidebar .i-list ul li a{color:#000;text-decoration:none;font-size:12px;}
+#sidebar .i-list ul li a:hover{text-decoration:underline;color:red;}
+
+#sidebar .hover{border-top:1px solid #e33a3d;border-bottom:1px solid #e33a3d;border-right:0px;background: #FAFAFA;width:260px;}
+
+#sidebar .hotText{
+	display: block;
+/* 	margin:30px;padding:0 15px; */
+/* 	width: 50px; */
+	overflow: hidden; /*注意不要写在最后了*/
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}

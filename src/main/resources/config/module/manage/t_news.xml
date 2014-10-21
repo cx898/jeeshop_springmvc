@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="manage.news">
+	<select id="manage.news.selectPageList" parameterType="net.jeeshop.services.manage.news.bean.News" resultType="net.jeeshop.services.manage.news.bean.News">
+		SELECT t.id,t.title,t.content,DATE_FORMAT(t.updatetime,'%Y-%m-%d')  updatetime,
+		t.readerCount,t.status,t.catalogID,t.type,t.order1,t.code   
+		FROM t_news t
+		where 1=1 
+		<if test="title!=null and title!=''">
+			and t.title like CONCAT('%','${title}','%' )
+		</if>
+		<if test="catalogID!=null and catalogID!=''">
+			and t.catalogID=#{catalogID}
+		</if>
+		<if test="lableID!=null and lableID!=-1">
+			and t.lableID CONCAT('%','${lableID}','%' )
+		</if>
+		<if test="status!=null and status!=''">
+			and t.status=#{status}
+		</if>
+		<if test="type!=null and type!=''">
+			and t.type=#{type}
+		</if>
+		<if test="createAccount!=null">
+			and t.createAccount=#{createAccount}
+		</if>
+		  order by id desc    
+		limit #{offset},#{pageSize}
+	</select>
+	<select id="manage.news.selectPageCount" parameterType="net.jeeshop.services.manage.news.bean.News" resultType="java.lang.Integer">
+		select count(*) 
+		FROM t_news t
+		where 1=1 
+		<if test="title!=null and title!=''">
+			and t.title like CONCAT('%','${title}','%' )
+		</if>
+		<if test="catalogID!=null and catalogID!=''">
+			and t.catalogID=#{catalogID}
+		</if>
+		<if test="lableID!=null and lableID!=-1">
+			and t.lableID CONCAT('%','${lableID}','%' )
+		</if>
+		<if test="status!=null and status!=''">
+			and t.status=#{status}
+		</if>
+		<if test="type!=null and type!=''">
+			and t.type=#{type}
+		</if>
+		<if test="createAccount!=null">
+			and t.createAccount=#{createAccount}
+		</if>
+	</select>
+	
+	<select id="manage.news.selectOne" parameterType="net.jeeshop.services.manage.news.bean.News" resultType="net.jeeshop.services.manage.news.bean.News">
+		SELECT * 
+		FROM t_news t
+		<where>
+			1=1
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="manage.news.insert" parameterType="net.jeeshop.services.manage.news.bean.News" useGeneratedKeys="true" 
+		keyProperty="id">
+		insert into t_news (id,type,title
+		<if test="title2!=null">,title2</if>
+		<if test="code!=null and code!=''">,code</if>
+		<if test="content!=null and content!=''">,content</if>
+		,createtime,updatetime,readerCount,status,catalogID,lableID,createAccount,order1)
+		 values (id,#{type}
+		 ,#{title}
+		 <if test="title2!=null">,#{title2}</if>
+		 <if test="code!=null and code!=''">,#{code}</if>
+		 <if test="content!=null and content!=''">,#{content}</if>
+		 ,now(),now(),#{readerCount},#{status},#{catalogID},#{lableID},#{createAccount},#{order1})
+	</insert>
+	
+	<update id="manage.news.update" parameterType="net.jeeshop.services.manage.news.bean.News">
+		update t_news set id=#{id},updatetime=now()
+		<if test="type!=null and type!=''">,type=#{type}</if>
+		<if test="title!=null and title!=''">,title=#{title}</if>
+		<if test="title2!=null and title2!=''">,title2=#{title2}</if>
+		<if test="code!=null and code!=''">,code=#{code}</if>
+		<if test="content!=null and content!=''">,content=#{content}</if>
+		<if test="catalogID!=null and catalogID!=''">,catalogID=#{catalogID}</if>
+		<if test="status!=null and status!=''">,status=#{status}</if>
+		<if test="order1!=0">,order1=#{order1}</if>
+		<if test="lableID!=null">,lableID=#{lableID}</if>
+		where id=#{id}
+	</update>
+	
+	<update id="manage.news.updateDownOrUp" parameterType="net.jeeshop.services.manage.news.bean.News">
+		update t_news set status=#{status} where id=#{id}
+	</update>
+	
+	<delete id="manage.news.delete" parameterType="net.jeeshop.services.manage.news.bean.News">
+		delete from t_news where id=#{id}
+	</delete>
+	
+	<select id="manage.news.selecIndexNews" parameterType="net.jeeshop.services.manage.news.bean.News" resultType="net.jeeshop.services.manage.news.bean.News">
+		SELECT * 
+		FROM t_news t
+		<where>
+			1=1 and t.type!=-1 and t.status='y'  
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+		</where> 
+		order by id desc limit 0,8 
+	</select>
+	
+	<select id="manage.news.selectCount" parameterType="net.jeeshop.services.manage.news.bean.News" resultType="int">
+		SELECT count(*) FROM t_news t where code=#{code} 
+<!-- 		<if test="id!=null and id!=''"> and id=#{id} </if> -->
+	</select>
+	
+	<select id="manage.news.selectById" parameterType="string" resultType="net.jeeshop.services.manage.news.bean.News">
+		SELECT id,code,title FROM t_news t where id=#{id} 
+	</select>
+	
+	<delete id="manage.news.deleteById" parameterType="int">
+		delete from t_news
+		where id=#{id}
+	</delete>
+	
+	<update id="manage.news.sync" parameterType="net.jeeshop.services.manage.news.bean.News">
+		update t_news set status=#{status} where id=#{id}
+	</update>
+	
+</mapper>  

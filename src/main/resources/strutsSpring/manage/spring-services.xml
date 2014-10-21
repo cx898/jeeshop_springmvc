@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 会员等级 -->
+	<bean id="accountRankDaoManage" class="net.jeeshop.services.manage.accountRank.dao.impl.AccountRankDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="accountRankServiceManage" class="net.jeeshop.services.manage.accountRank.impl.AccountRankServiceImpl">
+		<property name="dao" ref="accountRankDaoManage"></property>
+		<property name="accountRankDao" ref="accountRankDaoManage"></property>
+	</bean>
+	
+	<!-- 会员管理 -->
+	<bean id="accountDaoManage" class="net.jeeshop.services.manage.account.dao.impl.AccountDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="accountServiceManage" class="net.jeeshop.services.manage.account.impl.AccountServiceImpl">
+		<property name="dao" ref="accountDaoManage"></property>
+	</bean>
+	
+	<!-- 文章目录管理 -->
+	<bean id="catalogDaoManage" class="net.jeeshop.services.manage.catalog.dao.impl.CatalogDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="catalogServiceManage" class="net.jeeshop.services.manage.catalog.impl.CatalogServiceImpl">
+		<property name="dao" ref="catalogDaoManage"></property>
+		<property name="catalogDao" ref="catalogDaoManage"></property>
+	</bean>
+	
+	<!-- 门户新闻管理 -->
+	<bean id="newsDaoManage" class="net.jeeshop.services.manage.news.dao.impl.NewsDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="newsServiceManage" class="net.jeeshop.services.manage.news.impl.NewsServiceImpl">
+		<property name="dao" ref="newsDaoManage"></property>
+		<property name="newsDao" ref="newsDaoManage"></property>
+	</bean>
+	
+	<!-- 滚动图片管理 -->
+	<bean id="indexImgDaoManage" class="net.jeeshop.services.manage.indexImg.dao.impl.IndexImgDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="indexImgServiceManage" class="net.jeeshop.services.manage.indexImg.impl.IndexImgServiceImpl">
+		<property name="dao" ref="indexImgDaoManage"></property>
+		<property name="indexImgDao" ref="indexImgDaoManage"></property>
+	</bean>
+	
+	<!-- 产品管理 -->
+	<bean id="productDaoManage" class="net.jeeshop.services.manage.product.dao.impl.ProductDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="productServiceManage" class="net.jeeshop.services.manage.product.impl.ProductServiceImpl">
+		<property name="dao" ref="productDaoManage"></property>
+		<property name="productDao" ref="productDaoManage"></property>
+		<property name="specService" ref="specServiceManage"></property>
+	</bean>
+	
+	<!-- 订单管理 -->
+	<bean id="orderDaoManage" class="net.jeeshop.services.manage.order.dao.impl.OrderDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="orderServiceManage" class="net.jeeshop.services.manage.order.impl.OrderServiceImpl">
+		<property name="dao" ref="orderDaoManage"></property>
+		<property name="orderDao" ref="orderDaoManage"></property>
+		<property name="orderlogDao" ref="orderlogDaoManage"></property>
+	</bean>
+	
+	<!-- 订单项管理 -->
+	<bean id="orderdetailDaoManage" class="net.jeeshop.services.manage.orderdetail.dao.impl.OrderdetailDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="orderdetailServiceManage" class="net.jeeshop.services.manage.orderdetail.impl.OrderdetailServiceImpl">
+		<property name="dao" ref="orderdetailDaoManage"></property>
+		<property name="orderdetailDao" ref="orderdetailDaoManage"></property>
+	</bean>
+	
+	<!-- 门户导航管理 -->
+	<bean id="navigationDaoManage" class="net.jeeshop.services.manage.navigation.dao.impl.NavigationDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="navigationServiceManage" class="net.jeeshop.services.manage.navigation.impl.NavigationServiceImpl">
+		<property name="dao" ref="navigationDaoManage"></property>
+		<property name="navigationDao" ref="navigationDaoManage"></property>
+	</bean>
+	
+	<!-- 日志管理 -->
+	<bean id="systemlogDaoManage" class="net.jeeshop.services.manage.systemlog.dao.impl.SystemlogDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="systemlogServiceManage" class="net.jeeshop.services.manage.systemlog.impl.SystemlogServiceImpl">
+		<property name="dao" ref="systemlogDaoManage"></property>
+		<property name="systemlogDao" ref="systemlogDaoManage"></property>
+	</bean>
+	
+	<!-- 区域管理 -->
+	<bean id="areaDaoManage" class="net.jeeshop.services.manage.area.dao.impl.AreaDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="areaServiceManage" class="net.jeeshop.services.manage.area.impl.AreaServiceImpl">
+		<property name="dao" ref="areaDaoManage"></property>
+		<property name="areaDao" ref="areaDaoManage"></property>
+	</bean>
+	
+	<!-- 系统设置 -->
+	<bean id="systemSettingDaoManage" class="net.jeeshop.services.manage.systemSetting.dao.impl.SystemSettingDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="systemSettingServiceManage" class="net.jeeshop.services.manage.systemSetting.impl.SystemSettingServiceImpl">
+		<property name="dao" ref="systemSettingDaoManage"></property>
+		<property name="systemSettingDao" ref="systemSettingDaoManage"></property>
+	</bean>
+	
+	<!-- 评论管理 -->
+	<bean id="commentDaoManage" class="net.jeeshop.services.manage.comment.dao.impl.CommentDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="commentServiceManage" class="net.jeeshop.services.manage.comment.impl.CommentServiceImpl">
+		<property name="dao" ref="commentDaoManage"></property>
+		<property name="commentDao" ref="commentDaoManage"></property>
+	</bean>
+	
+	<!-- 键值对管理 -->
+	<bean id="keyvalueDaoManage" class="net.jeeshop.services.manage.keyvalue.dao.impl.KeyvalueDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="keyvalueServiceManage" class="net.jeeshop.services.manage.keyvalue.impl.KeyvalueServiceImpl">
+		<property name="dao" ref="keyvalueDaoManage"></property>
+		<property name="keyvalueDao" ref="keyvalueDaoManage"></property>
+	</bean>
+	
+	<!-- 产品属性管理 -->
+	<bean id="attributeDaoManage" class="net.jeeshop.services.manage.attribute.dao.impl.AttributeDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="attributeServiceManage" class="net.jeeshop.services.manage.attribute.impl.AttributeServiceImpl">
+		<property name="dao" ref="attributeDaoManage"></property>
+		<property name="attributeDao" ref="attributeDaoManage"></property>
+		<property name="attribute_linkDao" ref="attribute_linkDaoManage"></property>
+	</bean>
+
+	<!-- 属性，参数中间表 -->
+	<bean id="attribute_linkDaoManage" class="net.jeeshop.services.manage.attribute_link.dao.impl.Attribute_linkDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="attribute_linkServiceManage" class="net.jeeshop.services.manage.attribute_link.impl.Attribute_linkServiceImpl">
+		<property name="dao" ref="attribute_linkDaoManage"></property>
+		<property name="attribute_linkDao" ref="attribute_linkDaoManage"></property>
+	</bean>
+	
+	<!-- 支付记录 -->
+	<bean id="orderpayDaoManage" class="net.jeeshop.services.manage.orderpay.dao.impl.OrderpayDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="orderpayServiceManage" class="net.jeeshop.services.manage.orderpay.impl.OrderpayServiceImpl">
+		<property name="dao" ref="orderpayDaoManage"></property>
+		<property name="orderpayDao" ref="orderpayDaoManage"></property>
+	</bean>
+	
+	<!-- 订单配送信息 -->
+	<bean id="ordershipDaoManage" class="net.jeeshop.services.manage.ordership.dao.impl.OrdershipDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="ordershipServiceManage" class="net.jeeshop.services.manage.ordership.impl.OrdershipServiceImpl">
+		<property name="dao" ref="ordershipDaoManage"></property>
+		<property name="ordershipDao" ref="ordershipDaoManage"></property>
+	</bean>
+	
+	<!-- 广告管理 -->
+	<bean id="advertDaoManage" class="net.jeeshop.services.manage.advert.dao.impl.AdvertDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="advertServiceManage" class="net.jeeshop.services.manage.advert.impl.AdvertServiceImpl">
+		<property name="dao" ref="advertDaoManage"></property>
+		<property name="advertDao" ref="advertDaoManage"></property>
+	</bean>
+	
+	<!-- 订单日志 -->
+	<bean id="orderlogDaoManage" class="net.jeeshop.services.manage.orderlog.dao.impl.OrderlogDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="orderlogServiceManage" class="net.jeeshop.services.manage.orderlog.impl.OrderlogServiceImpl">
+		<property name="dao" ref="orderlogDaoManage"></property>
+		<property name="orderlogDao" ref="orderlogDaoManage"></property>
+	</bean>
+	
+	<!-- 问卷 -->
+	<bean id="questionnaireDaoManage" class="net.jeeshop.services.manage.questionnaire.dao.impl.QuestionnaireDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="questionnaireServiceManage" class="net.jeeshop.services.manage.questionnaire.impl.QuestionnaireServiceImpl">
+		<property name="dao" ref="questionnaireDaoManage"></property>
+		<property name="questionnaireDao" ref="questionnaireDaoManage"></property>
+	</bean>
+	
+	<!-- 问卷项目 -->
+	<bean id="questionnaireItemDaoManage" class="net.jeeshop.services.manage.questionnaireItem.dao.impl.QuestionnaireItemDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="questionnaireItemServiceManage" class="net.jeeshop.services.manage.questionnaireItem.impl.QuestionnaireItemServiceImpl">
+		<property name="dao" ref="questionnaireItemDaoManage"></property>
+		<property name="questionnaireItemDao" ref="questionnaireItemDaoManage"></property>
+	</bean>
+	
+	<!-- 问卷结果 -->
+	<bean id="questionnaireResultDaoManage" class="net.jeeshop.services.manage.questionnaireResult.dao.impl.QuestionnaireResultDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="questionnaireResultServiceManage" class="net.jeeshop.services.manage.questionnaireResult.impl.QuestionnaireResultServiceImpl">
+		<property name="dao" ref="questionnaireResultDaoManage"></property>
+		<property name="questionnaireResultDao" ref="questionnaireResultDaoManage"></property>
+	</bean>
+	
+	<!-- 支付方式 -->
+	<bean id="payDaoManage" class="net.jeeshop.services.manage.pay.dao.impl.PayDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="payServiceManage" class="net.jeeshop.services.manage.pay.impl.PayServiceImpl">
+		<property name="dao" ref="payDaoManage"></property>
+		<property name="payDao" ref="payDaoManage"></property>
+	</bean>
+	
+	<!-- 存储方式 -->
+	<bean id="ossDaoManage" class="net.jeeshop.services.manage.oss.dao.impl.OssDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="ossServiceManage" class="net.jeeshop.services.manage.oss.impl.OssServiceImpl">
+		<property name="dao" ref="ossDaoManage"></property>
+		<property name="ossDao" ref="ossDaoManage"></property>
+	</bean>
+	
+	<!-- 评论方式 -->
+	<bean id="commentTypeDaoManage" class="net.jeeshop.services.manage.commentType.dao.impl.CommentTypeDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="commentTypeServiceManage" class="net.jeeshop.services.manage.commentType.impl.CommentTypeServiceImpl">
+		<property name="dao" ref="commentTypeDaoManage"></property>
+		<property name="commentTypeDao" ref="commentTypeDaoManage"></property>
+	</bean>
+	
+	<!-- 物流 -->
+	<bean id="expressDaoManage" class="net.jeeshop.services.manage.express.dao.impl.ExpressDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="expressServiceManage" class="net.jeeshop.services.manage.express.impl.ExpressServiceImpl">
+		<property name="dao" ref="expressDaoManage"></property>
+		<property name="expressDao" ref="expressDaoManage"></property>
+	</bean>
+	
+	<!-- SMS短信 -->
+	<bean id="smsDaoManage" class="net.jeeshop.services.manage.sms.dao.impl.SmsDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="smsServiceManage" class="net.jeeshop.services.manage.sms.impl.SmsServiceImpl">
+		<property name="dao" ref="smsDaoManage"></property>
+		<property name="smsDao" ref="smsDaoManage"></property>
+	</bean>
+	
+	<!-- 商品到货通知 -->
+	<bean id="emailNotifyProductDaoManage" class="net.jeeshop.services.manage.emailNotifyProduct.dao.impl.EmailNotifyProductDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="emailNotifyProductServiceManage" class="net.jeeshop.services.manage.emailNotifyProduct.impl.EmailNotifyProductServiceImpl">
+		<property name="dao" ref="emailNotifyProductDaoManage"></property>
+		<property name="emailNotifyProductDao" ref="emailNotifyProductDaoManage"></property>
+		<property name="productService" ref="productServiceManage"></property>
+		<property name="accountService" ref="accountServiceManage"></property>
+	</bean>
+	
+	<!-- 通知模板 -->
+	<bean id="notifyTemplateDaoManage" class="net.jeeshop.services.manage.notifyTemplate.dao.impl.NotifyTemplateDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="notifyTemplateServiceManage" class="net.jeeshop.services.manage.notifyTemplate.impl.NotifyTemplateServiceImpl">
+		<property name="dao" ref="notifyTemplateDaoManage"></property>
+		<property name="notifyTemplateDao" ref="notifyTemplateDaoManage"></property>
+	</bean>
+	
+	<!-- 邮件管理 -->
+	<bean id="emailDaoManage" class="net.jeeshop.services.manage.email.dao.impl.EmailDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="emailServiceManage" class="net.jeeshop.services.manage.email.impl.EmailServiceImpl">
+		<property name="dao" ref="emailDaoManage"></property>
+		<property name="emailDao" ref="emailDaoManage"></property>
+	</bean>
+	
+	<!-- 任务管理 -->
+	<bean id="taskDaoManage" class="net.jeeshop.services.manage.task.dao.impl.TaskDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="taskServiceManage" class="net.jeeshop.services.manage.task.impl.TaskServiceImpl">
+		<property name="dao" ref="taskDaoManage"></property>
+		<property name="taskDao" ref="taskDaoManage"></property>
+	</bean>
+	
+	<!-- 促销活动管理 -->
+	<bean id="activityDaoManage" class="net.jeeshop.services.manage.activity.dao.impl.ActivityDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="activityServiceManage" class="net.jeeshop.services.manage.activity.impl.ActivityServiceImpl">
+		<property name="dao" ref="activityDaoManage"></property>
+		<property name="activityDao" ref="activityDaoManage"></property>
+		<property name="productService" ref="productServiceManage"></property>
+	</bean>
+	
+	<!-- 商品规格管理 -->
+	<bean id="specDaoManage" class="net.jeeshop.services.manage.spec.dao.impl.SpecDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="specServiceManage" class="net.jeeshop.services.manage.spec.impl.SpecServiceImpl">
+		<property name="dao" ref="specDaoManage"></property>
+		<property name="specDao" ref="specDaoManage"></property>
+	</bean>
+	
+	<!-- 商品赠品管理 -->
+	<bean id="giftDaoManage" class="net.jeeshop.services.manage.gift.dao.impl.GiftDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="giftServiceManage" class="net.jeeshop.services.manage.gift.impl.GiftServiceImpl">
+		<property name="dao" ref="giftDaoManage"></property>
+		<property name="giftDao" ref="giftDaoManage"></property>
+	</bean>
+	
+	<!-- 热门查询管理 -->
+	<bean id="hotqueryDaoManage" class="net.jeeshop.services.manage.hotquery.dao.impl.HotqueryDaoImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+	<bean id="hotqueryServiceManage" class="net.jeeshop.services.manage.hotquery.impl.HotqueryServiceImpl">
+		<property name="dao" ref="hotqueryDaoManage"></property>
+		<property name="hotqueryDao" ref="hotqueryDaoManage"></property>
+	</bean>
+	
+	<!-- 后台缓存管理器 -->
+	<bean id="manageCache" class="net.jeeshop.core.oscache.ManageCache">
+		<property name="orderService" ref="orderServiceManage"></property>
+		<property name="productService" ref="productServiceManage"></property>
+		<property name="commentService" ref="commentServiceManage"></property>
+		<property name="taskService" ref="taskServiceManage"></property>
+		<property name="ossService" ref="ossServiceManage"></property>
+	</bean>
+	
+</beans>

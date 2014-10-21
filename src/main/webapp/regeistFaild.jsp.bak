@@ -1,0 +1,165 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!-- tyy -->
+<%@ page session="false"%>
+<%@ taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="寻人寻物网" />
+<meta name="description" content="寻人寻物网" />
+<title><%=SystemSingle.getInstance().get(Container.web_title)%></title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/index_base.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/index.css">
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resource/js/jquery-1.4.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/resource/formValidator4.0.1/formValidator-4.0.1.min.js" type="text/javascript"></script> <!--表单验证必须库-->
+<script src="<%=request.getContextPath()%>/resource/formValidator4.0.1/formValidatorRegex.js" type="text/javascript"></script> <!--表单验证扩展库-->
+<link href="<%=request.getContextPath()%>/resource/formValidator4.0.1/style/validator.css" rel="stylesheet" type="text/css" /><!--表单验证样式表-->
+
+<style type="text/css">
+.titleCss {
+	background-color: #e6e6e6;
+	border: solid 1px #e6e6e6;
+	position: relative;
+	margin: -1px 0 0 0;
+	line-height: 32px;
+	text-align: left;
+}
+
+.spanCss {
+	color: red;
+}
+
+.spanSuccessCss {
+	color: blue;
+}
+
+.errorSpan {
+	text-align: left;
+	width: 100%;
+}
+</style>
+
+
+<script type="text/javascript">
+	var accountExist = false;
+	$(function() {
+		$("#account").blur(
+				function() {
+					$.ajax({
+						type : "post",
+						url : "account!checkAccount.action",
+						data : {},
+						async : false,
+						beforeSend : function() {
+						},
+						success : function(data) {
+							$("#accountError").removeClass("spanCss")
+									.removeClass("spanSuccessCss");
+							if (data == "1") {
+								accountExist = true;
+								$("#accountError").addClass("spanCss").html(
+										"帐号已经存在！");
+							} else {
+								$("#accountError").addClass("spanSuccessCss")
+										.html("恭喜，帐号可以使用！");
+							}
+						},
+						complete : function() {
+						}
+					});
+				});
+
+	});
+	function onSubmit12() {
+// 		if (accountExist) {
+// 			return false;
+// 		}
+// 		if ($("#nickname").val() == "") {
+// 			$("#nicknameError").html("请填写！");
+// 			return false;
+// 		}
+// 		if ($("#email").val() == "") {
+// 			$("#emailError").html("请输入邮箱！");
+// 			return false;
+// 		}
+
+		if(!$.formValidator.pageIsValid('1')) return false;    //如果不通过则不提交
+	}
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $.formValidator.initConfig({ formID: "form1", onError: function () { alert("校验没有通过，具体错误请看错误提示!");} });
+            $("#nickname").formValidator({ onShow: "请输入昵称", onCorrect: "谢谢你的合作，你的非空字符正确" }).regexValidator({ regExp: "notempty", dataType: "enum", onError: "非空字符格式不正确" });
+            $("#account").formValidator({ onShow: "请输入帐号", onCorrect: "谢谢你的合作，你的非空字符正确" }).regexValidator({ regExp: "notempty", dataType: "enum", onError: "非空字符格式不正确" });
+            $("#password").formValidator({ onShow: "请输入密码", onCorrect: "谢谢你的合作，你的非空字符正确" }).regexValidator({ regExp: "notempty", dataType: "enum", onError: "非空字符格式不正确" });
+            $("#password2").formValidator({ onShow: "请输入确认密码", onCorrect: "谢谢你的合作，你的非空字符正确" }).regexValidator({ regExp: "notempty", dataType: "enum", onError: "非空字符格式不正确" });
+            $("#email").formValidator({ onShow: "请输入邮箱", onCorrect: "谢谢你的合作，你的非空字符正确" }).regexValidator({ regExp: "notempty", dataType: "enum", onError: "非空字符格式不正确" });
+        
+            
+        });
+</script>
+
+</head>
+
+<body style="text-align: center">
+	<%@ include file="indexMenu.jsp"%>
+	<s:form action="account" name="form1" namespace="/" theme="simple">
+		<div id="contians_div"
+			style="margin: auto; width: 950px; height: 100%; border: 1px solid #e6e6e6;">
+			<div id="context_div"
+				style="margin-top: 0px; float: left; width: 200px; height: 500px; border-right: 1px solid #e6e6e6;">
+				注册事项；<br> 注册的流程；<br> 注册后拥有的权力和能干嘛；<br>
+			</div>
+			<div id="context_div" style="margin-top: 20px;">
+				<table id="result_table" cellpadding="0" cellspacing="0">
+					<tr>
+						<td colspan="3" class="myTitle">
+							<h3>用户注册</h3>
+						</td>
+					</tr>
+					<tr>
+						<th class="right" width="20%">昵称</th>
+						<td style="text-align: left; width: 30%"><s:textfield name="e.nickname" id="nickname" /></td>
+						<td><div id="nicknameTip" style="width:300px"></div></td>
+					</tr>
+					<tr>
+						<th class="right">用户名</th>
+						<td style="text-align: left;"><s:textfield name="e.account" id="account" /></td>
+						<td><div id="accountTip" style="width:300px"></div></td>
+					</tr>
+					<tr>
+						<th class="right">密码</th>
+						<td style="text-align: left;"><s:textfield name="e.password"
+								id="password" /></td>
+						<td><div id="passwordTip" style="width:300px"></div></td>
+					</tr>
+					<tr>
+						<th>确认密码</th>
+						<td style="text-align: left;"><s:textfield name="e.password2"
+								id="password2" /></td>
+						<td><div id="password2Tip" style="width:300px"></div></td>
+					</tr>
+					<tr>
+						<th>邮箱</th>
+						<td style="text-align: left;"><s:textfield name="e.email"
+								id="email" /></td>
+						<td><div id="emailTip" style="width:300px"></div></td>
+					</tr>
+					<tr>
+						<td colspan="3"><s:submit method="regeist" 
+								onclick="return onSubmit12();" value="注册" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div id="foot" style="clear: both; margin-top: 10px; height: 100px;"></div>
+	</s:form>
+	<%@ include file="foot.jsp"%>
+</body>
+</html>

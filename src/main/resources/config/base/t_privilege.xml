@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="privilege">
+	<select id="privilege.selectList" parameterType="net.jeeshop.core.system.bean.Privilege" resultType="net.jeeshop.core.system.bean.Privilege">
+		select t.* from t_privilege t 
+		where 1=1 
+		<if test="id!=null and id!=''">
+			and id=#{id}
+		</if>
+		<if test="rid!=null and rid!=''">
+			and rid=#{rid}
+		</if>
+		<if test="mid!=null and mid!=''">
+			and mid=#{mid}
+		</if>
+	</select>
+	<insert id="privilege.insert" parameterType="net.jeeshop.core.system.bean.Privilege" useGeneratedKeys="true" keyProperty="id">
+		insert into t_privilege (id,rid,mid) values (id,#{rid},#{mid})
+	</insert>
+	<update id="privilege.update" parameterType="net.jeeshop.core.system.bean.Privilege">
+		update t_privilege set id=#{id}
+		<if test="rid!=null and rid!=''">
+			,rid=#{rid}
+		</if>
+		<if test="mid!=null and mid!=''">
+			,mid=#{mid}
+		</if>
+	</update>
+	<delete id="privilege.delete" parameterType="net.jeeshop.core.system.bean.Privilege">
+		delete from t_privilege where 1=1 
+		<if test="id!=null and id!=''">
+			and id=#{id}
+		</if>
+		<if test="rid!=null and rid!=''">
+			and rid=#{rid}
+		</if>
+		<if test="mid!=null and mid!=''">
+			and mid=#{mid}
+		</if>
+	</delete>
+</mapper>  

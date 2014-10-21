@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*************************
+ *	global
+*************************/
+body{margin:0px; padding:0px; font-family:Arial,Tahoma,"新宋体"; font-size:12px; line-height:150%;}
+div{ margin:0 auto; padding:0;}
+h1,h2,h3,h4,h5{ margin:0px; padding:0px; font-size:12px;}
+ul,li,dl,dt,dd,p{ margin:0px; padding:0px; list-style:none;}
+img	{ border:0px;}
+form,input,select{ margin:0px; padding:0px; font-size:12px;}
+a{ text-decoration:none; color:#666666;}
+a:hover{ text-decoration:underline; color:#01AB00;}
+.clear{ clear:both;}
+.down5{ margin-bottom:5px;}
+.down8{ margin-bottom:8px;}
+.down10{margin-bottom:10px;}
+
+.f_l{ float:left;}
+.f_r{ float:right;}
+
+
+.slideBox{ width:300px; height:400px; overflow:hidden; position:relative; border:5px solid #ddd;  }
+.slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:5px; center:0px; bottom:5px; z-index:1; }
+.slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.slideBox .hd ul li{ float:left; margin-right:2px;  width:16px; height:16px; text-align:center; background:#fff; cursor:pointer; -moz-border-radius: 8px; 
+-webkit-border-radius: 8px; 
+border-radius: 8px; }
+.slideBox .hd ul li.on{ background:#CCCCCC; color:#fff; }
+.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox .bd li{ zoom:1; vertical-align:middle; }
+.slideBox .bd img{ width:300px; height:400px; display:block;  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

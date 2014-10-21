@@ -1,0 +1,114 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!-- tyy -->
+<%@ page session="false"%>
+<%@ taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@ include file="/resource/common_html_meat.jsp"%>
+<%@ include file="/resource/common_css.jsp"%>
+</head>
+
+<body style="text-align: center">
+	<%@ include file="indexMenu.jsp"%>
+
+	<div id="wrap">
+		<div class="container">
+			<div class="row" style="margin-top: 10px;">
+				<!-- 11 -->
+				<div class="col-md-4" style="padding-left: 0px; padding-right: 0px;">
+					左边信息</div>
+
+				<div class="col-md-8"
+					style="display: block; padding-left: 0px; padding-right: 0px;">
+					注册 成功
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<%@ include file="foot.jsp"%>
+	<script type="text/javascript">
+		$(function() {
+
+			//$("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } 
+
+			$("#account").blur(function() {
+				if ($("#account").val() == '') {
+					addCss0($("#account"));
+				} else {
+					removeCss0($("#account"));
+				}
+			});
+			$("#password").blur(function() {
+				if ($("#password").val() == '') {
+					addCss0($("#password"));
+				} else {
+					removeCss0($("#password"));
+				}
+			});
+		});
+
+		function addCss0(obj) {
+			obj.css({
+				"border" : "1px solid red"
+			});
+		}
+		function removeCss0(obj) {
+			obj.css({
+				"border" : "1px solid #ccc"
+			});
+		}
+
+		function submit222() {
+			var v = true;
+			if ($("#account").val() == '') {
+				addCss0($("#account"));
+				v = false;
+			}
+			if ($("#password").val() == '') {
+				addCss0($("#password"));
+				v = false;
+			}
+			if (v) {
+				return true;
+			}
+			return false;
+		}
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+
+			$('#myTab a:first').tab('show'); // Select first tab
+			$('#myTab a').click(function(e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+			$("#account2222").focus();
+		});
+
+		function ajaxLogin() {
+			if ($.trim($("#account2222").val()) == ""
+					|| $.trim($("#password2222").val()) == "") {
+				$("#showError").html("帐号或密码 不能为空!");
+				if ($.trim($("#account2222").val()) == "") {
+					$("#account2222").focus();
+				} else if ($.trim($("#password2222").val()) == "") {
+					$("#password2222").focus();
+				}
+				//return false;
+			}
+
+			var url0 = "account!ajaxLogin.action?e.account"
+					+ $.trim($("#account2222").val()) + "&e.password="
+					+ $.trim($("#password2222").val());
+			alert(url0);
+			$.get(url0, function(data, status) {
+				alert(data + "," + status);
+			});
+		}
+	</script>
+</body>
+</html>

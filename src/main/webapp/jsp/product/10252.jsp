@@ -1,0 +1,2 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<img src="http://127.0.0.1:8080/jeeshop/attached/image/20140226/1393423350334_3.jpg" alt="" /><img src="http://127.0.0.1:8080/jeeshop/attached/image/20140226/1393423350965_3.jpg" alt="" /><img src="http://127.0.0.1:8080/jeeshop/attached/image/20140226/1393423351312_3.jpg" alt="" />

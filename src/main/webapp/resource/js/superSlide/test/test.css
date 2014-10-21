@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*************************
+ *	global
+*************************/
+body{margin:0px; padding:0px; font-family:Arial,Tahoma,"新宋体"; font-size:12px; line-height:150%;}
+div{ margin:0 auto; padding:0;}
+h1,h2,h3,h4,h5{ margin:0px; padding:0px; font-size:12px;}
+ul,li,dl,dt,dd,p{ margin:0px; padding:0px; list-style:none;}
+img	{ border:0px;}
+form,input,select{ margin:0px; padding:0px; font-size:12px;}
+a{ text-decoration:none; color:#666666;}
+a:hover{ text-decoration:underline; color:#01AB00;}
+.clear{ clear:both;}
+.down5{ margin-bottom:5px;}
+.down8{ margin-bottom:8px;}
+.down10{margin-bottom:10px;}
+
+.f_l{ float:left;}
+.f_r{ float:right;}
+
+
+.SS{ width:500px; height:250px;border:1px solid #ddd; text-align:left; margin-top:50px;}
+.hd{ height:30px; line-height:30px;background:#f4f4f4; padding:0 20px; border-bottom:1px solid #ddd;  position:relative;}
+.hd ul{ position:absolute; left:20px; top:-1px; height:32px;  }
+.hd ul li{ float:left;padding:0 15px; cursor:pointer;  }
+.hd ul li.on{height:30px;  background:#fff; border:1px solid #ddd; border-bottom:1px solid #fff;}
+.bd{ padding-left:15px;}
+.bd ul{ padding:15px;zoom:1;}
+.bd ul li{height:25px; line-height:25px; padding-left:15px; background:url(../demo/images/icoLeft.gif) no-repeat center left; }
+.bd ul li .date{ float:right; color:#999;  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

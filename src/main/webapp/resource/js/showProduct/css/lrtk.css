@@ -1,0 +1,19 @@
+/* CSS Document */
+/* body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0} */
+/* ul,ol,li{list-style:none} */
+/* input,button{margin:0;font-size:12px;vertical-align:middle} */
+/* body{ font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-align: center; margin: 0 auto; background-color: #E3E3E3; } */
+/* table{border-collapse:collapse;border-spacing:0} */
+/* a{color:#333;text-decoration:none} */
+/* a:hover{color:#ef9b11;text-decoration:underline} */
+
+.box{width:500px;margin:0px auto}
+.left-pro{ width: 422px; border: 1px solid #ccc; text-align: left; float: left; background-color: #FFF; margin-top: 0px; padding-top: 0px; padding-right: 10px; padding-bottom: 20px; padding-left: 10px; }
+.left-pro .t1{width:90px;float:left}
+.left-pro .t2{width:232px;text-indent:0;float:left;padding-left:10px}
+.left-pro .t2 img{text-indent:0;}
+#showArea img{cursor:pointer;display:block;margin-bottom:5px;width:68px;padding:1px;border:1px solid #ccc;height:68px;float:left}
+#main_img{cursor:pointer;display:block}
+#gotop{cursor:pointer;display:block;margin-left:9px}
+#gobottom{cursor:pointer;display:block;margin-left:9px}
+#showArea{height:300px;margin:10px;overflow:hidden}

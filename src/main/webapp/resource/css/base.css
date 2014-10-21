@@ -1,0 +1,61 @@
+/* CSS Document */
+@CHARSET "UTF-8";
+
+a{
+	cursor: pointer;
+	overflow: hidden;
+/* 	font-size: 14px; */
+}
+
+.more{
+	font-size: 13px;
+	float: right;margin-right: 5px;
+}
+
+.titleCss{
+	text-align: left;
+	height: 32px;
+	vertical-align: middle;
+	font-size: 14px;
+	padding: 3px 10px;
+	background:#d9e7f0;
+	margin: 0;
+}
+
+div.box {
+  border: 1px solid #c2d5e3;
+/*   padding: 1px; */
+/*   width: 216px; */
+  position: relative;
+/*   margin-bottom: 10px; */
+  overflow: hidden;
+  background:#fafafa;
+/*   margin: 10 0; */
+min-height:300px;
+}
+
+div.box2 {
+  border: 1px solid #c2d5e3;
+  padding: 1px;
+/*   width: 216px; */
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background:#fafafa;
+  margin: 10 0;
+min-height:300px;
+}
+
+table{
+	margin-top: 0px;
+}
+
+ol,ul{
+	text-align: left;
+}
+
+body{
+	font-size: 12px;padding: 15px;
+}
+
+

@@ -1,0 +1,2 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140307/1394155358180_3.png" alt="" /><img src="http://myshopxx.oss.aliyuncs.com/attached/image/20140307/1394155186148_3.jpg" alt="" />

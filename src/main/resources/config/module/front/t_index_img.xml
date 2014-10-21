@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="front.indexImg">
+	<select id="front.indexImg.selectPageList" parameterType="net.jeeshop.services.front.indexImg.bean.IndexImg" resultType="hashMap">
+		SELECT * 
+		FROM t_index_img t
+		where 1=1
+		  order by order1  
+		limit #{offset},#{pageSize}
+	</select>
+	
+	<select id="front.indexImg.selectPageCount" parameterType="net.jeeshop.services.front.indexImg.bean.IndexImg" resultType="java.lang.Integer">
+		select count(*) from (
+		SELECT * 
+		FROM t_index_img t
+		where 1=1
+		) a
+	</select>
+	
+	<select id="front.indexImg.selectList" parameterType="net.jeeshop.services.front.indexImg.bean.IndexImg" resultType="hashMap">
+		SELECT * 
+		FROM t_index_img t
+		where 1=1
+		  order by order1  
+	</select>
+	
+	<select id="front.indexImg.selectOne" parameterType="net.jeeshop.services.front.indexImg.bean.IndexImg" resultType="net.jeeshop.services.front.indexImg.bean.IndexImg">
+		SELECT * 
+		FROM t_index_img t
+		<where>
+			1=1
+			<if test="id!=null">
+				and t.id=#{id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="front.indexImg.getImgsShowToIndex" parameterType="int" resultType="net.jeeshop.services.front.indexImg.bean.IndexImg">
+		SELECT * 
+		FROM t_index_img t order by order1
+	</select>
+</mapper>  

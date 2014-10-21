@@ -1,0 +1,10 @@
+#下面是我的gitignore文件的内容  
+
+
+#忽略后缀名为.class, .war和.ear的文件  
+
+*.class
+
+*.war
+
+*.ear

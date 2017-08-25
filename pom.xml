@@ -212,6 +212,7 @@
 			<version>1.6</version>
 		</dependency>
 
+<!-- 该三个jar包在webapp/web-info/lib目录中
 		<dependency>
 			<groupId>com.test.tanyy</groupId>
 			<artifactId>sinaWeibo</artifactId>
@@ -229,7 +230,8 @@
 			<artifactId>QRCode</artifactId>
 			<version>1.0</version>
 			<scope>compile</scope>
-		</dependency>
+		</dependency>-->
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

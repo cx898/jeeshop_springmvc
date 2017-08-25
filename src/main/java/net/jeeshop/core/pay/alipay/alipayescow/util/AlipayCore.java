@@ -110,6 +110,8 @@ public class AlipayCore {
      */
     public static String getAbstract(String strFilePath, String file_digest_type) throws IOException {
         PartSource file = new FilePartSource(new File(strFilePath));
+
+/*
     	if(file_digest_type.equals("MD5")){
     		return DigestUtils.md5Hex(file.createInputStream());
     	}
@@ -118,6 +120,7 @@ public class AlipayCore {
     	}
     	else {
     		return "";
-    	}
+    	}*/
+    	return file.toString();
     }
 }

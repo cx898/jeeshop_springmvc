@@ -54,9 +54,6 @@
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
           <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.0" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.6" />
-          <element id="library" level="project" name="Maven: com.test.tanyy:sinaWeibo:1.0" />
-          <element id="library" level="project" name="Maven: com.test.tanyy:qqLoginSdk4J:1.0" />
-          <element id="library" level="project" name="Maven: com.test.tanyy:QRCode:1.0" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.0.3" />
           <element id="library" level="project" name="Maven: jsptags:pager-taglib:2.0" />
           <element id="library" level="project" name="Maven: aspectj:aspectjweaver:1.5.3" />
